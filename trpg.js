@@ -4,6 +4,7 @@ const start = document.querySelector("#jsStartGame"),
   playingNumValue = document.querySelector("#playingNum input"),
   jsPlaySetting = document.querySelector("#jsPlaySetting"),
   entpContainer = document.querySelectorAll(".entpContainer"),
+  entpMainTitle = document.querySelectorAll(".entpMainTitle"),
   explanationBtn = document.querySelector("#explanation"),
   ExplanationContainer = document.querySelector("#Explanation");
 
@@ -39,6 +40,12 @@ function startGame() {
   }, 500);
 }
 
+function handleEntpMainTitle(event) {
+  const selectEntp = event.target,
+  selectEntppre = selectEntp.parentNode;
+  selectEntppre.classList.toggle("displayOn");
+}
+
 function handleEntpContainer(event) {
   const seletEntp = event.target;
   seletEntp.classList.toggle("displayOn");
@@ -56,6 +63,9 @@ function init() {
 playingNum.addEventListener("submit", handlePlayingNum);
 for (const checkClickEntpContainer of entpContainer) {
   checkClickEntpContainer.addEventListener("click", handleEntpContainer);
+}
+for (const checkClickEntpMainTitle of entpMainTitle) {
+  checkClickEntpMainTitle.addEventListener("click", handleEntpMainTitle);
 }
 explanationBtn.addEventListener("click", handleExplanationBtn);
 

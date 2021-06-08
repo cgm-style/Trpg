@@ -225,8 +225,8 @@
         <p style="text-align: center; font-size: 12px;">알고싶은 종족을 클릭해주세요</p>
     </div>
     <div id="jsPlaySetting">
-        <div>
-            <div>
+        <div id="jsCharacterSetting">
+            <div class="characterSetBox1">
                 <p>종족</p>
                 <option>
                     <select name="" id="" class="race">휴먼</select>
@@ -245,11 +245,23 @@
                     <select name="" id="" class="race">티플링</select>
                 </option>
                 <p>이름</p>
+                <input type="text"/>
                 <p>나이</p>
+                <input type="number"/>
                 <p>직업</p>
+                <option value="" id="job">
+                    <select name="" id=""></select>
+                    <select name="" id=""></select>
+                    <select name="" id=""></select>
+                    <select name="" id=""></select>
+                    <select name="" id=""></select>
+                </option>
             </div>
-            <div>
-
+            <div class="characterSetBox2">
+                <p class="jsChangeStateText">스텟 분배 : HP</p>
+                <form>
+                    <input type="radio" value="15" name="state">15
+                </form>
             </div>
         </div>
     </div>
