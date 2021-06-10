@@ -1,4 +1,4 @@
-*   {font-family: 'Noto Sans KR', sans-serif;}
+*   {font-family: 'Noto Sans KR', sans-serif !important;}
 body    {
     background-color: rgb(37, 31, 46);
 }
@@ -159,4 +159,140 @@ body    {
 
 .entpMainTitle  {
     font-size:1.3vw;
+}
+
+#jsPlaySetting  {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display:none;
+    opacity: 0;
+    margin-top: 50px;
+}
+
+.jsCharacterSetting {
+    width: 40%;
+    height: 80%;
+    top: 10%;
+    left: 30%;
+    position: fixed;
+    border-radius: 20px;
+    border: 6px solid rgba(255,255,255,0.8);
+    text-align: center;
+    display: none;
+}
+
+.jsCharacterSetting p   {  
+    margin: 20px 0;
+    font-size: 1.5vw;
+    color: rgba(0,0,0,0.7);
+    font-weight: 600;
+    text-shadow: 0 0 3px white;
+}
+
+.jsCharacterSetting .characterSetBox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(150,100,50);
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.jsCharacterSetting select  {
+    background: no-repeat;
+    border: 0px;
+    font-size: 26px;
+    border-bottom: 2px solid white;
+    color: white;
+    text-align: center;
+}
+
+.jsCharacterSetting option  {
+    background: black;
+    border: 0px;
+    text-align: center;
+}
+
+.jsCharacterSetting input   {
+    background: no-repeat;
+    border: 0px;
+    font-size: 26px;
+    border-bottom: 2px solid white;
+    color: white;
+    text-align: center;
+}
+
+.characterSetBox input[type=submit]   {
+    display: block;
+    margin: 50px auto;
+    border: 2px solid white !important;
+    padding: 5px 50px;
+    border-radius: 10px;
+    background: black !important;
+    cursor: pointer;
+}
+
+.characterSetBox1   {
+}
+
+.characterSetBox1 form  {
+    height: 80%;
+    top: 8%;
+    position: relative;
+}
+
+.characterSetBox2   {
+    display: none;
+}
+
+.selectSet  {
+    padding: 210px 0px;
+}
+.selectSet button   {
+    display: block;
+    margin: 20px auto;
+    background: black;
+    color: white;
+    padding: 20px 80px;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.dice4D6    {
+}
+
+.characterSetBox2 p  {
+    margin: 10px 0;
+}
+.diceBox    {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 20px 0;
+}
+
+.diceRoll   {
+    box-sizing: border-box;
+    background: black;
+    color: white;
+    padding: 4px 20px;
+    border-radius: 5px;
+    border: 2px solid;
+}
+
+.diceBox p  {
+    padding: 1px 7px;
+    background: white;
+    border: 2px solid;
+    margin: 2px;
+}
+
+.characterSetBox2 input[type=submit] {
+    margin: 15px auto;
+}
+
+.characterSetBox3   {
 }
