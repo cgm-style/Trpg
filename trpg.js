@@ -14,7 +14,8 @@ let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   playing = "", // 플레이 하는 인원수를 넣을 값
   classCheck = false, // ?...
   setRollDiceValue = [],  // 다이스 값 넣어놓는 변수
-  dicePlusValue = 0;  // 다이스 +값을 위한 변수
+  dicePlusValue = 0,  // 다이스 +값을 위한 변수
+  setLocalKeyValue = []; // 로컬 스토리지에 넣을 변수 값
 
 function handlePlayingNum(event) {  // 인원수 셋팅
   event.preventDefault(); // submit의 이벤트를 막음
@@ -47,24 +48,10 @@ function addChartSet()  {
 
   lookJsCrtSet.style.display = "block";
 
-  let clickCharacterNextSet1 = document.querySelectorAll(".characterNextSet1");
-
-  for (const clickCheckNext of clickCharacterNextSet1) {  // 첫번째 다음 버튼 클릭 이벤트
-    clickCheckNext.addEventListener("click", FirstNextButton);
-  }
+  setTimeout(() => {
+    lookJsCrtSet.className += " opacity";
+  }, 100);
 }
-
-function FirstNextButton(event)  {  // 첫번째 다음 버튼 클릭
-  event.preventDefault(); // 이벤트 막음
-
-  const firstNextBtn = event.target,
-        nowNoneDiv = firstNextBtn.parentNode.parentNode;
-        nextblockDiv = firstNextBtn.parentNode.parentNode.parentNode.lastChild;
-
-  nowNoneDiv.style.display = "none";
-  nextblockDiv.style.display = "block";
-}
-console.dir(start);
 
 function startGame() {  // 게임 시작
   start.style.display = "block";  // 첫 시작화면 인원수 창을 보이기 위한창

@@ -175,12 +175,10 @@ function addChart(num) {
           
     /* 셋팅을 위한 단 */
 
-    let setLocalKeyName = `jsCrtSet${num}`,
-        setLocalKeyValue = [];
+    let setLocalKeyName = `jsCrtSet${num}`;
     
 
     jsCharacterSetting.className = `jsCharacterSetting jsCrtSet${num}`;
-    console.dir(jsCharacterSetting);
       characterSetBox1.className = "characterSetBox characterSetBox1";
         characterSetBox1P1.innerText = "종족";
         characterSetBox1Select.className = "Entp";
@@ -247,8 +245,6 @@ function addChart(num) {
 
             nowNoneDiv.style.display = "none";
             nextblockDiv.style.display = "block";
-
-            console.dir(characterSetBox1Select);
         }
 
       characterSetBox2.className = "characterSetBox characterSetBox2";
@@ -257,7 +253,7 @@ function addChart(num) {
           characterSetBox2SelectSetBtn1.className = "diceSelectBtn";
           characterSetBox2SelectSetBtn1.innerText = "4D6(6면체 주사위를 4번 더한 합)";
           characterSetBox2SelectSetBtn2.className = "pointBuyBtn";
-          characterSetBox2SelectSetBtn2.innerText = "Point-buy 주어진 포인트를 사용하여 올리는 방법";
+          characterSetBox2SelectSetBtn2.innerText = "Point-buy 주어진 포인트를 사용하여 올리는 방법or 임의 조작";
 
 
           characterSetBox2SelectSetBtn1.addEventListener("click", addDice4D6);
@@ -291,22 +287,22 @@ function addChart(num) {
 
             characterSetBox2Dice4D6.className = "dice4D6";  //  주사위 스탯 설정하는 단
           characterSetBox2Dice4D6P1.innerText = "스텟 분배 : 근력";
-          characterSetBox2Dice4D6Input1.type = "text";
+          characterSetBox2Dice4D6Input1.type = "number";
           characterSetBox2Dice4D6Input1.className = "str";
           characterSetBox2Dice4D6P2.innerText = "스텟 분배 : 재주";
-          characterSetBox2Dice4D6Input2.type = "text";
+          characterSetBox2Dice4D6Input2.type = "number";
           characterSetBox2Dice4D6Input2.className = "dex";
           characterSetBox2Dice4D6P3.innerText = "스텟 분배 : 건강";
-          characterSetBox2Dice4D6Input3.type = "text";
+          characterSetBox2Dice4D6Input3.type = "number";
           characterSetBox2Dice4D6Input3.className = "con";
           characterSetBox2Dice4D6P4.innerText = "스텟 분배 : 지식";
-          characterSetBox2Dice4D6Input4.type = "text";
+          characterSetBox2Dice4D6Input4.type = "number";
           characterSetBox2Dice4D6Input4.className = "int";
           characterSetBox2Dice4D6P5.innerText = "스텟 분배 : 지혜";
-          characterSetBox2Dice4D6Input5.type = "text";
+          characterSetBox2Dice4D6Input5.type = "number";
           characterSetBox2Dice4D6Input5.className = "wis";
           characterSetBox2Dice4D6P6.innerText = "스텟 분배 : 매력";
-          characterSetBox2Dice4D6Input6.type = "text";
+          characterSetBox2Dice4D6Input6.type = "number";
           characterSetBox2Dice4D6Input6.className = "cha";
 
           characterSetBox2Dice4D6DiceBox.className= "diceBox";
@@ -378,7 +374,20 @@ function addChart(num) {
                 }
 
                 setLocalKeyValue.push(checkd);
-                console.dir(setLocalKeyValue);
+
+                localStorage.setItem(`chartKey`,JSON.stringify(setLocalKeyValue))
+
+                let hiddenSetBox = event.target.parentNode.parentNode.parentNode.parentNode;
+                hiddenSetBox.style.display = "none";
+
+                if(hiddenSetBox.parentNode.childNodes[setLocalKeyValue.length+1] !== undefined)  {
+                  hiddenSetBox.parentNode.childNodes[setLocalKeyValue.length+1].style.display = "block";
+                  setTimeout(() => {
+                    hiddenSetBox.parentNode.childNodes[setLocalKeyValue.length+1].className += " opacity";
+                  }, 300);
+                } else  {
+                  chartSetting();
+                }
             }
         
         }
@@ -403,7 +412,7 @@ function addChart(num) {
 
           characterSetBox2PointBuy.appendChild(characterSetBox2PointBuyPointBox);
             characterSetBox2PointBuyPointBox.appendChild(characterSetBox2PointBuyPointBoxP);
-              characterSetBox2PointBuyPointBoxP.appendChild(characterSetBox2PointBuyPointBoxPInput);
+            characterSetBox2PointBuyPointBox.appendChild(characterSetBox2PointBuyPointBoxPInput);
 
           characterSetBox2PointBuy.appendChild(characterSetBox2PointBuySubmit);
 
@@ -412,26 +421,32 @@ function addChart(num) {
           characterSetBox2PointBuyP1.innerText = "스텟 분배 : 근력";
           characterSetBox2PointBuyInput1.type = "number";
           characterSetBox2PointBuyInput1.className = "str";
+          characterSetBox2PointBuyInput1.value = "8";
           characterSetBox2PointBuyInput1.min = "8";
           characterSetBox2PointBuyP2.innerText = "스텟 분배 : 재주";
           characterSetBox2PointBuyInput2.type = "number";
           characterSetBox2PointBuyInput2.className = "dex";
+          characterSetBox2PointBuyInput2.value = "8";
           characterSetBox2PointBuyInput2.min = "8";
           characterSetBox2PointBuyP3.innerText = "스텟 분배 : 건강";
           characterSetBox2PointBuyInput3.type = "number";
           characterSetBox2PointBuyInput3.className = "con";
+          characterSetBox2PointBuyInput3.value = "8";
           characterSetBox2PointBuyInput3.min = "8";
           characterSetBox2PointBuyP4.innerText = "스텟 분배 : 지식";
           characterSetBox2PointBuyInput4.type = "number";
           characterSetBox2PointBuyInput4.className = "int";
+          characterSetBox2PointBuyInput4.value = "8";
           characterSetBox2PointBuyInput4.min = "8";
           characterSetBox2PointBuyP5.innerText = "스텟 분배 : 지혜";
           characterSetBox2PointBuyInput5.type = "number";
           characterSetBox2PointBuyInput5.className = "wis";
+          characterSetBox2PointBuyInput5.value = "8";
           characterSetBox2PointBuyInput5.min = "8";
           characterSetBox2PointBuyP6.innerText = "스텟 분배 : 매력";
           characterSetBox2PointBuyInput6.type = "number";
           characterSetBox2PointBuyInput6.className = "cha";
+          characterSetBox2PointBuyInput6.value = "8";
           characterSetBox2PointBuyInput6.min = "8";
         
         characterSetBox2PointBuyPointBox.className = "PointBox";
@@ -443,5 +458,68 @@ function addChart(num) {
         characterSetBox2PointBuySubmit.className = "characterNextSet2";
         characterSetBox2PointBuySubmit.type = "submit";
         characterSetBox2PointBuySubmit.value = "다음";
+
+
+        characterSetBox2Form.addEventListener("change", handlerChangePoint);
+
+        let pointNowStr = characterSetBox2PointBuyInput1.value,
+            pointNowDex = characterSetBox2PointBuyInput2.value,
+            pointNowCon = characterSetBox2PointBuyInput3.value,
+            pointNowInt = characterSetBox2PointBuyInput4.value,
+            pointNowWis = characterSetBox2PointBuyInput5.value,
+            pointNowCha = characterSetBox2PointBuyInput6.value,
+            totalPrevPoint = 48;
+            totalNowPoint = Number(pointNowStr) + Number(pointNowDex) + Number(pointNowCon) + Number(pointNowInt) + Number(pointNowWis) + Number(pointNowCha);  //  기본 스탯의 총합
+
+
+        function handlerChangePoint() { // 포인트 계산 단.
+          let totalChangePoint = Number(characterSetBox2PointBuyInput1.value) + Number(characterSetBox2PointBuyInput2.value) + Number(characterSetBox2PointBuyInput3.value) + Number(characterSetBox2PointBuyInput4.value) + Number(characterSetBox2PointBuyInput5.value) + Number(characterSetBox2PointBuyInput6.value),   //  49 
+              // 현재 변경된 스탯값의 총합
+              MyPoint = characterSetBox2PointBuyPointBoxPInput.value, //  남은 나의 포인트 값
+              savePoint = Number(totalChangePoint) - Number(totalNowPoint), //  변경 후 스탯의 총합 - 변경 전 스탯의 총합
+              totalSavePoint = savePoint; //  남은 포인트에서 - 혹은 + 될 포인트
+
+              MyPoint = Number(MyPoint) - Number(totalSavePoint); // 남은 포인트를 계산
+              characterSetBox2PointBuyPointBoxPInput.value = `${MyPoint}`; // 계산된 값을 입력
+
+              totalNowPoint = totalChangePoint; // 변경된 총합 값을 저장
+
+          }
+
+          characterSetBox2PointBuySubmit.addEventListener("click",selectPointNextSubmit);
+
+            function selectPointNextSubmit(event) {  // submit 버튼 클릭 이벤트
+                event.preventDefault(); // 이벤트 막음
+
+                let checkd = {
+                    Entp : characterSetBox1Select.value,
+                    name : characterSetBox1Input1.value,
+                    age : characterSetBox1Input2.value,
+                    job : characterSetBox1JobSelect.value,
+                    str : characterSetBox2PointBuyInput1.value,
+                    dex : characterSetBox2PointBuyInput2.value,
+                    con : characterSetBox2PointBuyInput3.value,
+                    int : characterSetBox2PointBuyInput4.value,
+                    wis : characterSetBox2PointBuyInput5.value,
+                    cha : characterSetBox2PointBuyInput6.value,
+                }
+                setLocalKeyValue.push(checkd);
+
+                localStorage.setItem(`chartKey`,JSON.stringify(setLocalKeyValue));
+
+                let hiddenSetBox = event.target.parentNode.parentNode.parentNode.parentNode;
+                hiddenSetBox.style.display = "none";
+
+                if(hiddenSetBox.parentNode.childNodes[setLocalKeyValue.length+1] !== undefined)  {
+                  hiddenSetBox.parentNode.childNodes[setLocalKeyValue.length+1].style.display = "block";
+                  setTimeout(() => {
+                    hiddenSetBox.parentNode.childNodes[setLocalKeyValue.length+1].className += " opacity";
+                  }, 300);
+                } else  {
+                  chartSetting();
+                }
+            }
+
+
         }
 }
