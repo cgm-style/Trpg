@@ -1,0 +1,258 @@
+/*   캐릭터 시트 css 전체 설정  */
+.chartContainer p,.chartContainer div,.chartContainer input,.chartContainer textarea,.chartContainer {
+    position: absolute;
+    font-family: 'Noto Serif KR', serif !important;
+}
+.subtext    {
+    color: gray !important;
+}
+
+
+/*   캐릭터 시트 개별 설정   */
+.main_text   {
+    top: 74px;
+    left: 70px;
+    font-size: 20px;
+    font-weight: 800;
+    transform: skew(0deg, 3deg);
+}
+.main_title {
+    width: 100%;
+    top: 109px;
+    left: 83px;
+}
+.main_title p:first-child   {
+    position: relative;
+    font-weight: 900;
+}
+.main_title p:last-child    {
+    font-size: 10px;
+    line-height: 1.5em;
+    width: 100px;
+}
+
+.setBox {
+    width: 180px;
+    height: 30px;
+}
+
+.setBox1    {
+    left: 325px;
+    top: 58px;
+}
+
+.setBox p:first-child {
+    font-size: 17px;
+    position: relative;
+}
+
+.setBox p:last-child   {
+    font-size: 10px;
+    line-height: 1.2em;
+}
+
+.setBox2    {
+    left: 508px;
+    top: 58px;
+}
+
+.setBox3    {
+    left: 325px;
+    top: 89px;
+}
+
+.setBox4    {
+    left: 508px;
+    top: 89px;
+}
+
+.state  {
+    width: 55px;
+    height: 69px;
+    text-align: center;
+}
+.state p    {
+    position: relative;
+}
+
+.state p:first-child    {
+    font-size: 14px;
+}
+
+.state p:nth-of-type(2)  {
+    font-size: 22px;
+    line-height: 1.55em;
+}
+
+.state p:last-child  {
+    margin-top: 2px;
+}
+
+.stateBox1  {
+    top: 172px;
+    left: 42px;
+}
+
+.stateBox2  {
+    top: 256px;
+    left: 42px;
+}
+
+.stateBox3  {
+    top: 340px;
+    left: 42px;
+}
+
+.stateBox4  {
+    top: 425px;
+    left: 42px;
+}
+
+.stateBox5  {
+    top: 510px;
+    left: 42px;
+}
+
+.stateBox6  {
+    top: 594px;
+    left: 42px;
+}
+
+.subState   {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    top: 160px;
+}
+
+.subState p:first-child {
+    position: relative;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.subState p:last-child  {
+    position: relative;
+    font-size: 13px;
+    line-height: 1.2em;
+}
+
+.GuardBox   {
+    left: 271px;
+}
+
+.inttBox    {
+    left: 338px;
+}
+
+.speedBox   {
+    left: 411px;
+}
+
+.textareaBox    {
+    width: 197px;
+    height: 72px;
+    text-align: center;
+}
+.textarea   {
+    width: 100%;
+    height: 57px;
+    box-sizing: border-box;
+    border: 0px;
+    position: relative !important;
+    font-size: 10px;
+    border-radius: 18px;
+}
+.textareaBox p {
+    position: relative;
+    font-size: 12px;
+}
+
+.myTextArea1    {
+    top: 162px;
+    left: 504px;
+}
+.myTextArea2    {
+    top: 245px;
+    left: 504px;
+}
+.myTextArea2 .textarea  {
+    height: 40px;
+}
+
+.myTextArea3    {
+    top: 310px;
+    left: 504px;
+}
+.myTextArea3 .textarea  {
+    height: 40px;
+}
+
+.myTextArea4    {
+    top: 375px;
+    left: 504px;
+}
+.myTextArea4 .textarea  {
+    height: 40px;
+}
+
+.hitPointsBox   {
+    width: 196px;
+    height: 71px;
+    top: 229px;
+    left: 275px;
+    text-align: center;
+}
+.hitPointsBox p {
+    position: relative;
+}
+
+.hitPointsBox p:first-child {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.jsNowHitPoint  {
+    font-size: 30px;
+    line-height: 1.4;
+}
+
+.hitPointsBox p:last-child  {
+    font-size: 11px;
+}
+
+.hitPointsBox1   {
+    width: 196px;
+    height: 55px;
+    top: 307px;
+    left: 275px;
+    text-align: center;
+}
+.hitPointsBox1 p {
+    position: relative;
+}
+
+.hitPointsBox p:first-child {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.jsEmpHitPoint  {
+    font-size: 30px;
+    line-height: 1.4;
+}
+
+.hitPointsBox1 p:last-child  {
+    font-size: 11px;
+}
+
+.hitDiceBox {
+    top: 374px;
+    left: 274px;
+    width: 93px;
+    height: 55px;
+}
+
+.hitDiceBox p   {
+    position: relative;
+}

@@ -8,10 +8,12 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     
 
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chart.css">
 </head>
 <body>
     <div id="jsStartGame"></div>
@@ -225,7 +227,116 @@
         </div>
         <p style="text-align: center; font-size: 12px;">알고싶은 종족을 클릭해주세요</p>
     </div>
-    <div id="jsPlaySetting">
+    <div id="jsPlaySetting"></div>
+    <div id="jsChartSet">
+        <div class="chartBox">
+            <div class="chartControl">1번 시트</div>
+            <div class="chartContainer">
+
+                <p class="main_text">막시무스카이저소제</p>
+                <div class="main_title">
+                    <p>캐릭터 이름</p>
+                    <p class="subtext">CHARACTER NAME</p>
+                </div>
+
+                <div class="setBox setBox1">
+                    <p><span class="jsJobText">파이터 </span><span class="jsLevelText"> 1 레벨</span></p>
+                    <p class="subtext">클래스 & 레벨</p>
+                </div>
+                <div class="setBox setBox2">
+                    <p><span class="jsNameText">막시무스카이저소제</span></p>
+                    <p class="subtext">플레이어 이름</p>
+                </div>
+                <div class="setBox setBox3">
+                    <p><span class="jsRaceText">다크 혼종 휴먼</span></p>
+                    <p class="subtext">종족</p>
+                </div>
+                <div class="setBox setBox4">
+                    <p><span class="jsExpText">0</span></p>
+                    <p class="subtext">경험치</p>
+                </div>
+
+                <div class="state stateBox1">
+                    <p>힘</p>
+                    <p class="jsPlusStr">+3</p>
+                    <p class="jsStrText">16</p>
+                </div>
+                <div class="state stateBox2">
+                    <p>민첩</p>
+                    <p class="jsPlusStr">+0</p>
+                    <p class="jsStrText">11</p>
+                </div>
+                <div class="state stateBox3">
+                    <p>건강</p>
+                    <p class="jsPlusStr">+1</p>
+                    <p class="jsStrText">12</p>
+                </div>
+                <div class="state stateBox4">
+                    <p>지능</p>
+                    <p class="jsPlusStr">-1</p>
+                    <p class="jsStrText">9</p>
+                </div>
+                <div class="state stateBox5">
+                    <p>지혜</p>
+                    <p class="jsPlusStr">-1</p>
+                    <p class="jsStrText">9</p>
+                </div>
+                <div class="state stateBox6">
+                    <p>매력</p>
+                    <p class="jsPlusStr">+3</p>
+                    <p class="jsStrText">16</p>
+                </div>
+
+                <div class="subState GuardBox">
+                    <p>18</p>
+                    <p>방어도</p>
+                </div>
+                <div class="subState inttBox">
+                    <p>+0</p>
+                    <p>우선권</p>
+                </div>
+                <div class="subState speedBox">
+                    <p>30</p>
+                    <p>이동속도</p>
+                </div>
+
+                <div class="textareaBox myTextArea1">
+                    <textarea class="textarea"></textarea>
+                    <p>성격 특성</p>
+                </div>
+                <div class="textareaBox myTextArea2">
+                    <textarea class="textarea"></textarea>
+                    <p>이상</p>
+                </div>
+                <div class="textareaBox myTextArea3">
+                    <textarea class="textarea"></textarea>
+                    <p>유대</p>
+                </div>
+                <div class="textareaBox myTextArea4">
+                    <textarea class="textarea"></textarea>
+                    <p>결점</p>
+                </div>
+
+                <div class="hitPointsBox">
+                    <p class="subtext">최대 히트 포인트 : <span class="jsMaxHitPoint">11</span></p>
+                    <p class="jsNowHitPoint">11</p>
+                    <p>현재 히트 포인트 CURRENT POINTS</p>
+                </div>
+
+                <div class="hitPointsBox1">
+                    <p> </p>
+                    <p class="jsEmpHitPoint"> </p>
+                    <p>임시 히트 포인트</p>
+                </div>
+
+                <div class="hitDiceBox">
+                    <p class="subtext">Total : <span class="jsTotalHitDice">1d10</span></p>
+                    <p class="jsHitDice">1d10</p>
+                    <p>히트 다이스</p>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <!--  https://codepen.io/tholman/pen/qCnfB  드래그 했을떄 글씨가 나타나는것  -->
@@ -233,5 +344,6 @@
 
     <script src="trpg.js"></script>
     <script src="addChart.js"></script>
+    <script src="setting.js"></script>
 </body>
 </html>
