@@ -1,13 +1,14 @@
-const start = document.querySelector("#jsStartGame"),
-  jsSetting = document.querySelector("#jsSetting"),
-  playingNum = document.querySelector("#playingNum"),
-  playingNumValue = document.querySelector("#playingNum input"),
-  jsPlaySetting = document.querySelector("#jsPlaySetting"),
-  entpContainer = document.querySelectorAll(".entpContainer"),
-  entpMainTitle = document.querySelectorAll(".entpMainTitle"),
-  explanationBtn = document.querySelector("#explanation"),
-  ExplanationContainer = document.querySelector("#Explanation"),
-  characterNextSet = document.querySelectorAll(".characterNextSet");
+const start = document.querySelector("#jsStartGame"), // 배경 박스
+  jsSetting = document.querySelector("#jsSetting"), //  플레이어 인원수 적는 박스
+  playingNum = document.querySelector("#playingNum"), // 플레이어 인원수 form
+  playingNumValue = document.querySelector("#playingNum input"),  // 플레이어 인원수 적는 박스
+  jsPlaySetting = document.querySelector("#jsPlaySetting"), // 플레이어 셋팅 박스
+  entpContainer = document.querySelectorAll(".entpContainer"),  // 종족 박스
+  entpMainTitle = document.querySelectorAll(".entpMainTitle"),  // 종족 타이틀
+  explanationBtn = document.querySelector("#explanation"),  // 설명 버튼
+  ExplanationContainer = document.querySelector("#Explanation"),  // 설명 박스
+  characterNextSet = document.querySelectorAll(".characterNextSet"),
+  jsChartSet = document.querySelector("#jsChartSet"); // 캐릭터 상세 시트 박스
 
 let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   gameSet = [], // 셋팅에 대한 키 값을 넣을 입력 값
@@ -38,23 +39,23 @@ function settingGame(playNum) { // 게임 셋팅
     addChart(adcht);  //차트 생성에 차트마다 이름을 주기위해 횟수값을 넘김
   }
 
-  addChartSet();
+  addChartSet();  // 생성 후 차트 설정
 }
 
-function addChartSet()  {
-  let playNumChack = gameSet.length+1;
+function addChartSet()  { // 생성 후 차트 설정
+  let playNumChack = gameSet.length+1;  // 현재 입력된 셋탱값. default는 한개도 없기에 0 +1인 1
 
-  let lookJsCrtSet = document.querySelector(`.jsCrtSet${playNumChack}`);
+  let lookJsCrtSet = document.querySelector(`.jsCrtSet${playNumChack}`);  //  default는 모든 차트에서 맨 처음 차트
 
-  lookJsCrtSet.style.display = "block";
+  lookJsCrtSet.style.display = "block"; // 맨 처음 차트를 보이도록 설정
 
   setTimeout(() => {
-    lookJsCrtSet.className += " opacity";
+    lookJsCrtSet.className += " opacity"; // 보인 후 인터렉션을 위한 클래스 입력
   }, 100);
 }
 
 function startGame() {  // 게임 시작
-  start.style.display = "block";  // 첫 시작화면 인원수 창을 보이기 위한창
+  start.style.display = "block";  // 배경화면 자연스럽게 올라오게 하기
   jsSetting.style.display = "block";  // 위와 같음
 
   setTimeout(() => {  // 보이게한 창을 자연스럽게 하기위한 값
@@ -81,7 +82,16 @@ function handleExplanationBtn() { // 종족 설명을 위한 토글
 }
 
 function init() { // 게임시작 전체 컨트롤
-  startGame();
+
+  const loadGameSet = localStorage.getItem("chartKey"); // 저장된 값을 가져옴 없다면 null
+
+    let leadLoadGameSet = JSON.parse(loadGameSet);  // 저장된 값을 읽을 수 있도록 가공
+
+    if(leadLoadGameSet !== null)    { // 만약 저장된 값이 있다면
+      loadGame(leadLoadGameSet);
+    } else  {
+      startGame();
+    }
 }
 
 playingNum.addEventListener("submit", handlePlayingNum);  // 인원수 확인 변수

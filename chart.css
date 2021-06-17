@@ -144,6 +144,15 @@
 .inttBox    {
     left: 338px;
 }
+.inttBox input  {
+    position: relative;
+    width: 35px;
+    height: 30px;
+    border: 0px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 22px;
+}
 
 .speedBox   {
     left: 411px;
@@ -212,11 +221,6 @@
     margin-top: 2px;
 }
 
-.jsNowHitPoint  {
-    font-size: 30px;
-    line-height: 1.4;
-}
-
 .hitPointsBox p:last-child  {
     font-size: 11px;
 }
@@ -255,4 +259,372 @@
 
 .hitDiceBox p   {
     position: relative;
+}
+.hitDiceBox p:first-child   {
+    font-size: 12px;
+    margin-left: 7px;
+}
+.hitDiceBox p:first-child p {
+    margin-left: 5px;
+}
+.jsHitDice  {
+    margin: 8px;
+}
+.hitDiceBox p:last-child    {
+    font-size: 12px;
+}
+.hitDiceBox p   {
+    text-align: center;
+}
+
+.deathBox   {
+    top: 375px;
+    left: 376px;
+    width: 96px;
+}
+.deathBox div   {
+    position: relative;
+    clear: both;
+    margin: 3px;
+    height: 15px;
+    margin-left: 10px;
+}
+.deathBox div p {
+    position: relative;
+    float: left;
+    font-size: 14px;
+}
+.deathBox div input {
+    width: 48px;
+    background: transparent;
+    -webkit-appearance: none;
+    margin-left: 5px;
+    top: -1px;
+}
+.deathBox div:nth-of-type(3)    {
+    margin: 0px;
+    width: 100%;
+}
+.deathBox div:nth-of-type(3) p  {
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.insPoint   {
+    top: 153px;
+    left: 125px;
+}
+.insPoint p {
+    float: left;
+    position: relative;
+}
+.insPoint p:first-child {
+    font-size: 21px;
+}
+.insPoint p:last-child  {
+    font-size: 12px;
+    margin-left: 16px;
+    margin-top: 5px;
+}
+
+.propBonusPoint {
+    top: 198px;
+    left: 121px;
+}
+.propBonusPoint p   {
+    float: left;
+    position: relative;
+}
+.propBonusPoint p:first-child   {
+    font-size: 21px;
+}
+.propBonusPoint p:last-child    {
+    font-size: 15px;
+    margin-left: 9px;
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+.savinc {
+    left: 119px;
+}
+.savinc p   {
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+}
+.savinc input   {
+    position: relative;
+    width: 9px;
+    top: 4px;
+}
+.savinc p:nth-of-type(2)    {
+    margin-left: 10px;
+}
+.savinc p:nth-of-type(3)    {
+    margin-left: 10px;
+}
+
+.savincStr  {
+    top: 236px;
+}
+.savincDex  {
+    top: 252px;
+}
+.savincCon  {
+    top: 268px;
+}
+.savincInt  {
+    top: 284px;
+}
+.savincWis  {
+    top: 300px;
+}
+.savincCha  {
+    top: 316px;
+}
+.savincText {
+    position: relative !important;
+    top: 338px;
+    left: 148px;
+    font-size: 14px;
+}
+
+.skill {
+    left: 119px;
+}
+.skill p   {
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+}
+.skill input   {
+    position: relative;
+    width: 9px;
+    top: 4px;
+}
+.skill p:nth-of-type(2)    {
+    margin-left: 10px;
+}
+
+.skill1 {
+    top: 373px;
+}
+.skill2 {
+    top: 389px;
+}
+.skill3 {
+    top: 405px;
+}
+.skill4 {
+    top: 421px;
+}
+.skill5 {
+    top: 437px;
+}
+.skill6 {
+    top: 453px;
+}
+.skill7 {
+    top: 469px;
+}
+.skill8 {
+    top: 485px;
+}
+.skill9 {
+    top: 501px;
+}
+.skill10 {
+    top: 517px;
+}
+.skill11 {
+    top: 533px;
+}
+.skill12 {
+    top: 549px;
+}
+.skill13 {
+    top: 565px;
+}
+.skill14 {
+    top: 581px;
+}
+.skill15 {
+    top: 597px;
+}
+.skill16 {
+    top: 613px;
+}
+.skill17 {
+    top: 629px;
+}
+.skill18 {
+    top: 645px;
+}
+.skillText  {
+    position: relative !important;
+    top: 652px;
+    left: 160px;
+    font-size: 14px;
+}
+
+.passiveWisdom  {
+    top: 699px;
+    left: 42px;
+}
+.passiveWisdom p  {
+    position: relative;
+    float: left;
+}
+.passiveWisdom p:first-child    {
+    font-size: 20px;
+}
+.passiveWisdom p:last-child {
+    margin-left: 20px;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.otherPro_Lang  {
+    top: 740px;
+    left: 45px;
+    width: 194px;
+}
+.otherPro_Lang p    {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.3em;
+}
+.otherPro_LangText  {
+    top: 73px;
+    text-align: center;
+}
+
+.atkMagBox  {
+    top: 453px;
+    left: 264px;
+    width: 216px;
+    height: 233px;
+}
+.atkMagBox p    {
+    position: relative;
+    font-size: 10px;
+}
+.atkMagBox div  {
+    display: flex;
+    margin-left: 5px;
+}
+.atkMagBox textarea {
+    top: 90px;
+    left: 3px;
+    width: 205px;
+    height: 117px;
+    border: 0px;
+}
+.atkMagBox div:nth-of-type(2)   {
+    top: 33px;
+}
+.atkMagBox div:nth-of-type(3)   {
+    top: 56px;
+}
+.atkMagBox input    {
+    position: relative;
+    border: 0px;
+    background: lightgray;
+    border-radius: 7px;
+    height: 18px;
+    margin: 2px;
+}
+.atkMagBox p span:nth-of-type(1)    {
+    margin-left: 8px;
+    float: left;
+}
+.atkMagBox p span:nth-of-type(2)    {
+    margin-left: 45px;
+}
+.atkMagBox p span:nth-of-type(3)    {
+    float: right;
+    margin-right: 7px;
+}
+.atkMagBox p:last-child {
+    text-align: center;
+    top: 205px;
+}
+.AtkName    {
+    width: 74px;
+}
+.AtkBonus   {
+    width: 36px;
+}
+.AtkDamage  {
+    width: 74px;
+}
+
+.equBox {
+    top: 697px;
+    left: 267px;
+    width: 212px;
+    height: 208px;
+}
+.equBox div {
+    display: flex;
+    left: 12px;
+}
+.equBox textarea    {
+    left: 91px;
+    top: 3px;
+    width: 108px;
+    height: 156px;
+    border: 0px;
+}
+.equBox div p   {
+    position: relative;
+    float: left;
+}
+.equBox div input   {
+    float: left;
+    position: relative;
+    border: 0px;
+    background: no-repeat;
+    width: 31px;
+    top: -2px;
+}
+.cpBox  {
+    top: 14px;
+}
+.spBox  {
+    top: 45px;
+}
+.epBox  {
+    top: 76px;
+}
+.gpBox  {
+    top: 107px;
+}
+.ppBox  {
+    top: 138px;
+}
+.equTitle   {
+    position: relative !important;
+    top: 191px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.traitsBox  {
+    top: 453px;
+    left: 497px;
+    width: 211px;
+    height: 452px;
+}
+.traitsBox p    {
+    position: relative;
+    text-align: center;
+    top: 436px;
+}
+.traits {
+    border: 0px;
+    width: 207px;
+    height: 427px;
 }
