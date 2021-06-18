@@ -218,7 +218,7 @@ function addChart(num) {
           characterSetBox1JobOption4.innerText = "뭉크";
           characterSetBox1JobOption5.innerText = "소서러";
           characterSetBox1JobOption6.innerText = "위자드";
-          characterSetBox1JobOption7.innerText = "클래릭";
+          characterSetBox1JobOption7.innerText = "클레릭";
           characterSetBox1JobOption8.innerText = "페이버드 소울";
           characterSetBox1JobOption9.innerText = "드루이드";
           characterSetBox1JobOption10.innerText = "워락";
@@ -374,6 +374,8 @@ function addChart(num) {
                     speed : 0,  // 스피드
                     movement : 0, // 이동속도
                     jsMaxHitPoint : 0,  // 최대 히트 포인트
+                    subHitPoint : 0,  // 임시 히트 포인트
+                    nowHitPoint : 0,  // 현재 히트 포인트
                     str : characterSetBox2Dice4D6Input1.value,  // 스텟 1
                     dex : characterSetBox2Dice4D6Input2.value,  // 스텟 2
                     con : characterSetBox2Dice4D6Input3.value,  // 스텟 3
@@ -514,6 +516,8 @@ function addChart(num) {
                     speed : 0,  // 스피드
                     movement : 0, // 이동속도
                     jsMaxHitPoint : 0,  // 최대 히트 포인트
+                    subHitPoint : 0,  // 임시 히트 포인트
+                    nowHitPoint : 0,  // 현재 히트 포인트
                     str : characterSetBox2PointBuyInput1.value, //  스텟1
                     dex : characterSetBox2PointBuyInput2.value, //  스텟2
                     con : characterSetBox2PointBuyInput3.value, //  스텟3

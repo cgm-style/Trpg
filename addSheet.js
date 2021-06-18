@@ -13,6 +13,10 @@ function addSheet(num,leadLoadGameSet) {
         myLevel = leadLoadGameSet[num].level,   // 레벨
         myInspiration = leadLoadGameSet[num].inspiration,   // 고양감
         myjsMaxHitPoint = leadLoadGameSet[num].jsMaxHitPoint,  // 최대 히트 포인트
+        myNowHitPoint = leadLoadGameSet[num].nowHitPoint,   // 현재 히트 포인트
+        mySubHitPoint = leadLoadGameSet[num].subHitPoint,   // 임시 히트 포인트
+        setJobHitPoint = 0, // 직업에 따른 기본 히트 포인트
+        myHitDice = 0,  //  히트 다이스
         fixset = 0, // 수정치 입력할 변수
         entpStr = 0, // 힘 종족 수정치
         entpDex = 0, // 민첩 종족 수정치
@@ -26,7 +30,14 @@ function addSheet(num,leadLoadGameSet) {
         fixstateInt = 0,    // 최종 지능 수정치
         fixstateWis = 0,    // 최종 지혜 수정치
         fixstateCha = 0,    // 최종 매력 수정치
-        proficiency = 0;    // 능숙도 보너스
+        proficiency = 0,    // 능숙도 보너스
+        savincStateStr = 0, // 내성 굴림 힘
+        savincStateDex = 0, // 내성 굴림 민첩
+        savincStateCon = 0, // 내성 굴림 건강
+        savincStateInt = 0, // 내성 굴림 지능
+        savincStateWis = 0, // 내성 굴림 지혜
+        savincStateCha = 0; // 내성 굴림 매력
+
 
         if(myEntp === "휴먼")   {   // 종족에 따른 수치 입력
             entpStr = 1;
@@ -84,6 +95,50 @@ function addSheet(num,leadLoadGameSet) {
             movement = 30;
         };
 
+        if(myJob === "파이터")    { // 직업에 따른 수치들
+            myHitDice = "1d10"
+            setJobHitPoint = 10;
+        }else if(myJob === "바바리안")  {   
+            myHitDice = "1d12"
+            setJobHitPoint = 12;
+        }else if(myJob === "팔라딘")  {
+            myHitDice = "1d10"
+            setJobHitPoint = 10;
+        }else if(myJob === "뭉크")  {
+
+        }else if(myJob === "소서러")  {
+            myHitDice = "1d6"
+            setJobHitPoint = 6;
+        }else if(myJob === "위자드")  {
+            myHitDice = "1d6"
+            setJobHitPoint = 6;
+        }else if(myJob === "클레릭")  {
+            myHitDice = "1d8"
+            setJobHitPoint = 8;
+        }else if(myJob === "페이버드 소울")  {
+            myHitDice = "1d8"
+            setJobHitPoint = 8;
+        }else if(myJob === "드루이드")  {
+            myHitDice = "1d8"
+            setJobHitPoint = 8;
+        }else if(myJob === "워락")  {
+            myHitDice = "1d8"
+            setJobHitPoint = 8;
+        }else if(myJob === "로그")  {
+            myHitDice = "1d8"
+            setJobHitPoint = 8;
+        }else if(myJob === "레인저")  {
+            myHitDice = "1d10"
+            setJobHitPoint = 10;
+        }else if(myJob === "바드")  {
+            myHitDice = "1d8"
+            setJobHitPoint = 8;
+        }else if(myJob === "아티피서")  {
+
+        }else if(myJob === "알케미스트")  {
+
+        }
+
         if(myLevel <= 4){
             proficiency = 2;
         }else if (myLevel >= 5 && myLevel <= 8) {
@@ -120,24 +175,33 @@ function addSheet(num,leadLoadGameSet) {
             fixstateWis = Number(fixset) +  entpWis;
             fixstateCha = Number(fixset) +  entpCha;
 
+
             if(fixstateStr >= 0)    {    // 양수라면 +를 붙여 가독성을 올려줌
+                savincStateStr = `+${fixstateStr + proficiency}`;
                 fixstateStr = `+${fixstateStr}`;
             }
             if(fixstateDex >= 0)  {
+                savincStateDex = `+${fixstateDex + proficiency}`;
                 fixstateDex = `+${fixstateDex}`;
             }
             if(fixstateCon >= 0)  {
+                savincStateCon = `+${fixstateCon + proficiency}`;
                 fixstateCon = `+${fixstateCon}`;
             }
             if(fixstateInt >= 0)  {
+                savincStateInt = `+${fixstateInt + proficiency}`;
                 fixstateInt = `+${fixstateInt}`;
             }
             if(fixstateWis >= 0)  {
+                savincStateWis = `+${fixstateWis + proficiency}`;
                 fixstateWis = `+${fixstateWis}`;
             }
             if(fixstateCha >= 0)  {
+                savincStateCha = `+${fixstateCha + proficiency}`;
                 fixstateCha = `+${fixstateCha}`;
             };
+
+            myNowHitPoint = Number(savincStateCon) + Number(setJobHitPoint);
             
         }
 
@@ -232,7 +296,6 @@ function addSheet(num,leadLoadGameSet) {
                 hitPointsBox1p3 = document.createElement("p"),
             hitDiceBox = document.createElement("div"),
                 hitDiceBoxp1 = document.createElement("p"),
-                    hitDiceBoxp1span = document.createElement("span"),
                 hitDiceBoxp2 = document.createElement("p"),
                 hitDiceBoxp3 = document.createElement("p"),
             deathBox = document.createElement("div"),
@@ -244,6 +307,7 @@ function addSheet(num,leadLoadGameSet) {
                         deathBoxformdiv2p = document.createElement("p"),
                         deathBoxformdiv2input = document.createElement("input"),
                     deathBoxformdiv3 = document.createElement("div"),
+                        deathBoxformdiv3p = document.createElement("p"),
             savincBox = document.createElement("form"),
                 savincBoxdiv1 = document.createElement("div"),
                     savincBoxdiv1input = document.createElement("input"),
@@ -491,7 +555,6 @@ function addSheet(num,leadLoadGameSet) {
                 hitPointsBox1.appendChild(hitPointsBox1p3);
             chartContainer.appendChild(hitDiceBox);
                 hitDiceBox.appendChild(hitDiceBoxp1);
-                    hitDiceBoxp1.appendChild(hitDiceBoxp1span);
                 hitDiceBox.appendChild(hitDiceBoxp2);
                 hitDiceBox.appendChild(hitDiceBoxp3);
             chartContainer.appendChild(deathBox);
@@ -503,6 +566,7 @@ function addSheet(num,leadLoadGameSet) {
                         deathBoxformdiv2.appendChild(deathBoxformdiv2p);
                         deathBoxformdiv2.appendChild(deathBoxformdiv2input);
                     deathBoxform.appendChild(deathBoxformdiv3);
+                        deathBoxformdiv3.appendChild(deathBoxformdiv3p);
             chartContainer.appendChild(savincBox);
                 savincBox.appendChild(savincBoxdiv1);
                     savincBoxdiv1.appendChild(savincBoxdiv1input);
@@ -770,10 +834,88 @@ function addSheet(num,leadLoadGameSet) {
                 hitPointsBoxp1.className = "subtext";
                 hitPointsBoxp1.innerText = `최대 히트 포인트 : ${myjsMaxHitPoint}`;
                 hitPointsBoxp2.className = "jsNowHitPoint";
-                hitPointsBoxp2.innerText = "11";
+                hitPointsBoxp2.innerText = `${myNowHitPoint}`;
                 hitPointsBoxp3.innerText = "현재 히트 포인트 CURRENT POINTS";
             hitPointsBox1.className = "hitPointsBox1";
                 hitPointsBox1p2.className = "jsEmpHitPoint";
-                hitPointsBox1p2.innerText = "0";
+                hitPointsBox1p2.innerText = `${mySubHitPoint}`;
                 hitPointsBox1p3.innerText = "임시 히트 포인트"
+            hitDiceBox.className = "hitDiceBox";
+                hitDiceBoxp1.className = "subtext";
+                hitDiceBoxp1.innerText = `Total : ${myHitDice}`;
+                hitDiceBoxp2.className = "jsHitDice";
+                hitDiceBoxp2.innerText = `${myHitDice}`;
+                hitDiceBoxp3.innerText = "히트 다이스";
+            deathBox.className = "deathBox";
+                deathBoxformdiv1p.innerText = "성공";
+                deathBoxformdiv1input.type = "range";
+                deathBoxformdiv1input.value = 0;
+                deathBoxformdiv1input.className = "death_Success";
+                deathBoxformdiv1input.min = 1;
+                deathBoxformdiv1input.max = 3;
+                deathBoxformdiv2p.innerText = "실패";
+                deathBoxformdiv2input.type = "range";
+                deathBoxformdiv2input.value = 0;
+                deathBoxformdiv2input.className = "death_Failure";
+                deathBoxformdiv2input.min = 1;
+                deathBoxformdiv2input.max = 3;
+                deathBoxformdiv3p.innerText = "죽음 내성";
+            savincBoxdiv1.className = "savinc savincStr";   //  내성 근력
+                savincBoxdiv1input.type = "checkbox";
+                savincBoxdiv1p1.innerText = `${myStr}`;
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "레인저")  {
+                    savincBoxdiv1p1.innerText = `${fixState(myStr),savincStateStr}`;
+                    savincBoxdiv1input.checked = true;
+                }
+                savincBoxdiv1p2.innerText = "힘";
+                savincBoxdiv1p3.innerText = "STR";
+            savincBoxdiv2.className = "savinc savincDex";   //  내성 민첩
+                savincBoxdiv2input.type = "checkbox";
+                savincBoxdiv2p1.innerText = `${myDex}`;
+                if(myJob === "로그" || myJob === "바드" || myJob === "레인저")  {
+                    savincBoxdiv2p1.innerText = `${fixState(myDex),savincStateDex}`;
+                    savincBoxdiv2input.checked = true;
+                }
+                savincBoxdiv2p2.innerText = "민첩";
+                savincBoxdiv2p3.innerText = "DEX";
+            savincBoxdiv3.className = "savinc savincCon";   // 내성 건강
+                savincBoxdiv3input.type = "checkbox";
+                savincBoxdiv3p1.innerText = `${myCon}`;
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "소서러")  {
+                    savincBoxdiv3p1.innerText = `${fixState(myCon),savincStateCon}`;
+                    savincBoxdiv3input.checked = true;
+                }
+                savincBoxdiv3p2.innerText = "건강";
+                savincBoxdiv3p3.innerText = "CON";
+            savincBoxdiv4.className = "savinc savincInt";   // 내성 지능
+                savincBoxdiv4input.type = "checkbox";
+                savincBoxdiv4p1.innerText = `${myInt}`;
+                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드")  {
+                    savincBoxdiv4p1.innerText = `${fixState(myInt),savincStateInt}`;
+                    savincBoxdiv4input.checked = true;
+                }
+                savincBoxdiv4p2.innerText = "지능";
+                savincBoxdiv4p3.innerText = "INT";
+            savincBoxdiv5.className = "savinc savincWis";   // 내성 지혜
+                savincBoxdiv5input.type = "checkbox";
+                savincBoxdiv5p1.innerText = `${myWis}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {
+                    savincBoxdiv5p1.innerText = `${fixState(myWis),savincStateWis}`;
+                    savincBoxdiv5input.checked = true;
+                }
+                savincBoxdiv5p2.innerText = "지혜";
+                savincBoxdiv5p3.innerText = "WIS";
+            savincBoxdiv6.className = "savinc savincCha";   // 내성 매력
+                savincBoxdiv6input.type = "checkbox";
+                savincBoxdiv6p1.innerText = `${myCha}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "바드" || myJob === "소서러" || myJob === "워락")  {
+                    savincBoxdiv6p1.innerText = `${fixState(myCha),savincStateCha}`;
+                    savincBoxdiv6input.checked = true;
+                }
+                savincBoxdiv6p2.innerText = "매력";
+                savincBoxdiv6p3.innerText = "CHA";
+            savincBoxp.className = "savincText";
+            savincBoxp.innerText = "내성 굴림";
+
+
 }
