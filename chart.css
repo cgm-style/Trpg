@@ -235,6 +235,10 @@
 .hitPointsBox1 p {
     position: relative;
 }
+.jsNowHitPoint   {
+    font-size: 25px;
+    margin: 9px;
+}
 
 .hitPointsBox p:first-child {
     font-size: 12px;

@@ -15,6 +15,10 @@ function addSheet(num,leadLoadGameSet) {
         myjsMaxHitPoint = leadLoadGameSet[num].jsMaxHitPoint,  // 최대 히트 포인트
         myNowHitPoint = leadLoadGameSet[num].nowHitPoint,   // 현재 히트 포인트
         mySubHitPoint = leadLoadGameSet[num].subHitPoint,   // 임시 히트 포인트
+        jobArmor = 0,  // 직업에 따른 방어구
+        jobWapon = 0,  // 직업에 따른 무기
+        jobTool = 0,   // 직업에 따른 도구
+        jobrang = 0,   // 직업에 따른 언어
         setJobHitPoint = 0, // 직업에 따른 기본 히트 포인트
         myHitDice = 0,  //  히트 다이스
         fixset = 0, // 수정치 입력할 변수
@@ -98,6 +102,7 @@ function addSheet(num,leadLoadGameSet) {
         if(myJob === "파이터")    { // 직업에 따른 수치들
             myHitDice = "1d10"
             setJobHitPoint = 10;
+            jobArmor = ""
         }else if(myJob === "바바리안")  {   
             myHitDice = "1d12"
             setJobHitPoint = 12;
@@ -152,7 +157,7 @@ function addSheet(num,leadLoadGameSet) {
         }
 
         function fixState(state) {  //  스탯에 따른 수정치를 구하는 단
-            if(state <= 3)  {
+            if(state <= 3)  {   // 순수 스탯에 의한 수정치
                 fixset = "-3"
             }else if (state >= 4 && state <= 5)  {
                 fixset = "-2"
@@ -168,7 +173,7 @@ function addSheet(num,leadLoadGameSet) {
                 fixset = "+3"
             }
 
-            fixstateStr = Number(fixset) +  entpStr;    // 수정치 계산
+            fixstateStr = Number(fixset) +  entpStr;    // 종족치 + 스탯 수정치 합산
             fixstateDex = Number(fixset) +  entpDex;
             fixstateCon = Number(fixset) +  entpCon;
             fixstateInt = Number(fixset) +  entpInt;
@@ -862,54 +867,54 @@ function addSheet(num,leadLoadGameSet) {
                 deathBoxformdiv3p.innerText = "죽음 내성";
             savincBoxdiv1.className = "savinc savincStr";   //  내성 근력
                 savincBoxdiv1input.type = "checkbox";
-                savincBoxdiv1p1.innerText = `${myStr}`;
+                savincBoxdiv1p1.innerText = `${fixState(myStr),fixstateStr}`;
                 if(myJob === "파이터" || myJob === "바바리안" || myJob === "레인저")  {
-                    savincBoxdiv1p1.innerText = `${fixState(myStr),savincStateStr}`;
+                    savincBoxdiv1p1.innerText = `${savincStateStr}`;
                     savincBoxdiv1input.checked = true;
                 }
                 savincBoxdiv1p2.innerText = "힘";
                 savincBoxdiv1p3.innerText = "STR";
             savincBoxdiv2.className = "savinc savincDex";   //  내성 민첩
                 savincBoxdiv2input.type = "checkbox";
-                savincBoxdiv2p1.innerText = `${myDex}`;
-                if(myJob === "로그" || myJob === "바드" || myJob === "레인저")  {
-                    savincBoxdiv2p1.innerText = `${fixState(myDex),savincStateDex}`;
+                savincBoxdiv2p1.innerText = `${fixState(myDex),fixstateDex}`;
+                if(myJob === "로그" || myJob === "바드" || myJob === "레인저" || myJob === "알케미스트")  {
+                    savincBoxdiv2p1.innerText = `${savincStateDex}`;
                     savincBoxdiv2input.checked = true;
                 }
                 savincBoxdiv2p2.innerText = "민첩";
                 savincBoxdiv2p3.innerText = "DEX";
             savincBoxdiv3.className = "savinc savincCon";   // 내성 건강
                 savincBoxdiv3input.type = "checkbox";
-                savincBoxdiv3p1.innerText = `${myCon}`;
-                if(myJob === "파이터" || myJob === "바바리안" || myJob === "소서러")  {
-                    savincBoxdiv3p1.innerText = `${fixState(myCon),savincStateCon}`;
+                savincBoxdiv3p1.innerText = `${fixState(myCon),fixstateCon}`;
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "소서러" || myJob === "아티피서" || myJob === "알케미스트")  {
+                    savincBoxdiv3p1.innerText = `${savincStateCon}`;
                     savincBoxdiv3input.checked = true;
                 }
                 savincBoxdiv3p2.innerText = "건강";
                 savincBoxdiv3p3.innerText = "CON";
             savincBoxdiv4.className = "savinc savincInt";   // 내성 지능
                 savincBoxdiv4input.type = "checkbox";
-                savincBoxdiv4p1.innerText = `${myInt}`;
-                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드")  {
-                    savincBoxdiv4p1.innerText = `${fixState(myInt),savincStateInt}`;
+                savincBoxdiv4p1.innerText = `${fixState(myInt),fixstateInt}`;
+                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드" || myJob === "아티피서")  {
+                    savincBoxdiv4p1.innerText = `${savincStateInt}`;
                     savincBoxdiv4input.checked = true;
                 }
                 savincBoxdiv4p2.innerText = "지능";
                 savincBoxdiv4p3.innerText = "INT";
             savincBoxdiv5.className = "savinc savincWis";   // 내성 지혜
                 savincBoxdiv5input.type = "checkbox";
-                savincBoxdiv5p1.innerText = `${myWis}`;
+                savincBoxdiv5p1.innerText = `${fixState(myWis),fixstateWis}`;
                 if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {
-                    savincBoxdiv5p1.innerText = `${fixState(myWis),savincStateWis}`;
+                    savincBoxdiv5p1.innerText = `${savincStateWis}`;
                     savincBoxdiv5input.checked = true;
                 }
                 savincBoxdiv5p2.innerText = "지혜";
                 savincBoxdiv5p3.innerText = "WIS";
             savincBoxdiv6.className = "savinc savincCha";   // 내성 매력
                 savincBoxdiv6input.type = "checkbox";
-                savincBoxdiv6p1.innerText = `${myCha}`;
+                savincBoxdiv6p1.innerText = `${fixState(myCha),fixstateCha}`;
                 if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "바드" || myJob === "소서러" || myJob === "워락")  {
-                    savincBoxdiv6p1.innerText = `${fixState(myCha),savincStateCha}`;
+                    savincBoxdiv6p1.innerText = `${savincStateCha}`;
                     savincBoxdiv6input.checked = true;
                 }
                 savincBoxdiv6p2.innerText = "매력";
@@ -918,4 +923,225 @@ function addSheet(num,leadLoadGameSet) {
             savincBoxp.innerText = "내성 굴림";
 
 
+            skillBoxdiv1.className = "skill skill1";
+                skillBoxdiv1input.type = "checkbox";
+                if(myJob === "팔라딘" || myJob === "바바리안" || myJob === "클레릭" || myJob === "레인저" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러" || myJob === "워락" || myJob === "드루이드")  {   // 곡예/유연을 사용 못하는 클래스
+                    skillBoxdiv1input.disabled = true;
+                }
+                skillBoxdiv1p1.innerText = `${fixState(myDex),fixstateDex}`;
+                if(myJob === "로그" || myJob === "바드" || myJob === "레인저" || myJob === "알케미스트")  {
+                    skillBoxdiv1p1.innerText = `${savincStateDex}`;
+                }
+                skillBoxdiv1p2.innerText = "곡예/유연"; //  민첩 굴림
+
+            skillBoxdiv2.className = "skill skill2";
+                skillBoxdiv2input.type = "checkbox";
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "뭉크" || myJob === "로그" || myJob === "아티피서" || myJob === "알케미스트" || myJob === "위저드" || myJob === "소서러" || myJob === "워락")  {   // 동물 조련을 사용 못하는 클래스
+                    skillBoxdiv2input.disabled = true;
+                }
+                skillBoxdiv2p1.innerText = `${fixState(myWis),fixstateWis}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {
+                    skillBoxdiv2p1.innerText = `${savincStateWis}`;
+                }
+                skillBoxdiv2p2.innerText = "동물 조련"; // 지혜 굴림
+
+            skillBoxdiv3.className = "skill skill3";
+                skillBoxdiv3input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "팔라딘" || myJob === "바바리안" || myJob === "클레릭" || myJob === "뭉크" || myJob === "알케미스트" || myJob === "로그" || myJob === "레인저")  { // 마법 지식을 사용 못하는 클래스
+                    skillBoxdiv3input.disabled = true;
+                }
+                skillBoxdiv3p1.innerText = `${fixState(myInt),fixstateInt}`;
+                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드" || myJob === "아티피서")  {
+                    skillBoxdiv3p1.innerText = `${savincStateInt}`;
+                }
+                skillBoxdiv3p2.innerText = "마법 지식"; // 지능 굴림
+                
+            skillBoxdiv4.className = "skill skill4";
+                skillBoxdiv4input.type = "checkbox";
+                if(myJob === "클레릭" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러" || myJob === "알케미스트" || myJob === "워락" || myJob === "드루이드")  {   // 운동을 사용 못하는 클래스
+                    skillBoxdiv2input.disabled = true;
+                }
+                skillBoxdiv4p1.innerText = `${fixState(myStr),fixstateStr}`;
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "레인저")  {
+                    skillBoxdiv4p1.innerText = `${fixState(myStr),savincStateStr}`;
+                }
+                skillBoxdiv4p2.innerText = "운동";  // 근력 굴림
+
+            skillBoxdiv5.className = "skill skill5";
+                skillBoxdiv5input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "팔라딘" || myJob === "바바리안" || myJob === "알케미스트" || myJob === "클레릭" || myJob === "뭉크" || myJob === "레인저" || myJob === "아티피서" || myJob === "위저드" || myJob === "드루이드")  { // 속임수를 사용 못하는 클래스
+                    skillBoxdiv5input.disabled = true;
+                }
+                skillBoxdiv5p1.innerText = `${fixState(myCha),fixstateCha}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "바드" || myJob === "소서러" || myJob === "워락")  {
+                    skillBoxdiv5p1.innerText = `${savincStateCha}`;
+                }
+                skillBoxdiv5p2.innerText = "속임수";  // 매력 굴림
+
+            skillBoxdiv6.className = "skill skill6";
+                skillBoxdiv6input.type = "checkbox";
+                if(myJob === "팔라딘" || myJob === "바바리안" || myJob === "로그" || myJob === "알케미스트" || myJob === "소서러" || myJob === "드루이드")  {   // 역사 지식을 사용 못하는 클래스
+                    skillBoxdiv6input.disabled = true;
+                }
+                skillBoxdiv6p1.innerText = `${fixState(myInt),fixstateInt}`;
+                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드" || myJob === "아티피서" || myJob === "레인저")  {
+                    skillBoxdiv6p1.innerText = `${savincStateInt}`;
+                }
+                skillBoxdiv6p2.innerText = "역사 지식"; // 지능 굴림
+
+            skillBoxdiv7.className = "skill skill7";
+                skillBoxdiv7input.type = "checkbox";
+                if(myJob === "바바리안" || myJob === "워락")  {   // 통찰력을 사용 못하는 클래스
+                    skillBoxdiv7input.disabled = true;
+                }
+                skillBoxdiv7p1.innerText = `${fixState(myWis),fixstateWis}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "아티피서" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {
+                    skillBoxdiv7p1.innerText = `${savincStateWis}`;
+                }
+                skillBoxdiv7p2.innerText = "통찰력";    // 지혜 굴림
+
+            skillBoxdiv8.className = "skill skill8";
+                skillBoxdiv8input.type = "checkbox";
+                if(myJob === "클레릭" || myJob === "뭉크" || myJob === "레인저" || myJob === "알케미스트" || myJob === "아티피서" || myJob === "위저드" || myJob === "드루이드")  {   // 위협을 사용 못하는 클래스
+                    skillBoxdiv8input.disabled = true;
+                }
+                skillBoxdiv8p1.innerText = `${fixState(myCha),fixstateCha}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "바드" || myJob === "소서러" || myJob === "워락")  {
+                    skillBoxdiv8p1.innerText = `${savincStateCha}`;
+                }
+                skillBoxdiv8p2.innerText = "위협";  // 매력 굴림
+
+            skillBoxdiv9.className = "skill skill9";
+                skillBoxdiv9input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "팔라딘" || myJob === "바바리안" || myJob === "클레릭" || myJob === "뭉크" || myJob === "소서러" || myJob === "드루이드")  { // 조사를 사용 못하는 클래스
+                    skillBoxdiv9input.disabled = true;
+                }
+                skillBoxdiv9p1.innerText = `${fixState(myInt),fixstateInt}`;
+                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드" || myJob === "아티피서")  {
+                    skillBoxdiv9p1.innerText = `${savincStateInt}`;
+                }
+                skillBoxdiv9p2.innerText = "조사";  //  지능 굴림
+
+            skillBoxdiv10.className = "skill skill10";
+                skillBoxdiv10input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "뭉크" || myJob === "로그" || myJob === "레인저" || myJob === "소서러" || myJob === "워락")  {   // 의학을 사용 못하는 클래스
+                    skillBoxdiv10input.disabled = true;
+                }
+                skillBoxdiv10p1.innerText = `${fixState(myWis),fixstateWis}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {
+                    skillBoxdiv10p1.innerText = `${savincStateWis}`;
+                }
+                skillBoxdiv10p2.innerText = "의학"; // 지혜 굴림
+
+            skillBoxdiv11.className = "skill skill11";
+                skillBoxdiv11input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "팔라딘" || myJob === "클레릭" || myJob === "뭉크" || myJob === "로그" || myJob === "레인저" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러")  { // 자연지식을 사용 못하는 클래스
+                    skillBoxdiv11input.disabled = true;
+                }
+                skillBoxdiv11p1.innerText = `${fixState(myInt),fixstateInt}`;
+                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드" || myJob === "아티피서")  {
+                    skillBoxdiv11p1.innerText = `${savincStateInt}`;
+                }
+                skillBoxdiv11p2.innerText = "자연 지식"; // 지능 굴림
+
+            skillBoxdiv12.className = "skill skill12";
+                skillBoxdiv12input.type = "checkbox";
+                if(myJob === "팔라딘" || myJob === "팔라딘" || myJob === "클레릭" || myJob === "뭉크" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러" || myJob === "워락")  {   // 감지를 사용 못하는 클래스
+                    skillBoxdiv12input.disabled = true;
+                }
+                skillBoxdiv12p1.innerText = `${fixState(myWis),fixstateWis}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {
+                    skillBoxdiv12p1.innerText = `${savincStateWis}`;
+                }
+                skillBoxdiv12p2.innerText = "감지"; // 지헤 굴림
+
+            skillBoxdiv13.className = "skill skill13";
+                skillBoxdiv13input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "팔라딘" || myJob === "바바리안" || myJob === "알케미스트" || myJob === "클레릭" || myJob === "뭉크" || myJob === "레인저" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러" || myJob === "워락" || myJob === "드루이드")  {   // 공연/언행을 사용 못하는 클래스
+                    skillBoxdiv13input.disabled = true;
+                }
+                skillBoxdiv13p1.innerText = `${fixState(myCha),fixstateCha}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "바드" || myJob === "소서러" || myJob === "워락")  {
+                    skillBoxdiv13p1.innerText = `${savincStateCha}`;
+                }
+                skillBoxdiv13p2.innerText = "공연/언행"; // 매력 굴림
+
+            skillBoxdiv14.className = "skill skill14";
+                skillBoxdiv14input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "뭉크" || myJob === "레인저" || myJob === "아티피서" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {   // 설득을 사용 못하는 클래스
+                    skillBoxdiv14input.disabled = true;
+                }
+                skillBoxdiv14p1.innerText = `${fixState(myCha),fixstateCha}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "바드" || myJob === "소서러" || myJob === "워락")  {
+                    skillBoxdiv14p1.innerText = `${savincStateCha}`;
+                }
+                skillBoxdiv14p2.innerText = "설득"; // 매력 굴림
+
+            skillBoxdiv15.className = "skill skill15";
+                skillBoxdiv15input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "로그" || myJob === "레인저" || myJob === "워락" || myJob === "알케미스트")  {   // 종교지식을 사용 못하는 클래스
+                    skillBoxdiv15input.disabled = true;
+                }
+                skillBoxdiv15p1.innerText = `${fixState(myInt),fixstateInt}`;
+                if(myJob === "로그" || myJob === "위저드" || myJob === "드루이드" || myJob === "아티피서")  {
+                    skillBoxdiv15p1.innerText = `${savincStateInt}`;
+                }
+                skillBoxdiv15p2.innerText = "종교 지식"; // 지능 굴림
+
+            skillBoxdiv16.className = "skill skill16";
+                skillBoxdiv16input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "팔라딘" || myJob === "바바리안" || myJob === "클레릭" || myJob === "뭉크" || myJob === "레인저" || myJob === "알케미스트" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러" || myJob === "워락" || myJob === "드루이드")  { // 소매치기를 사용 못하는 클래스
+                    skillBoxdiv16input.disabled = true;
+                }
+                skillBoxdiv16p1.innerText = `${fixState(myDex),fixstateDex}`;
+                if(myJob === "로그" || myJob === "바드" || myJob === "레인저" || myJob === "알케미스트")  {
+                    skillBoxdiv16p1.innerText = `${savincStateDex}`;
+                }
+                skillBoxdiv16p2.innerText = "소매치기"; // 민첩 굴림
+
+            skillBoxdiv17.className = "skill skill17";
+                skillBoxdiv17input.type = "checkbox";
+                if(myJob === "파이터" || myJob === "팔라딘" || myJob === "바바리안" || myJob === "클레릭" || myJob === "알케미스트" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러" || myJob === "워락" || myJob === "드루이드")  { // 은신을 사용 못하는 클래스
+                    skillBoxdiv17input.disabled = true;
+                }
+                skillBoxdiv17p1.innerText = `${fixState(myDex),savincStateDex}`;
+                if(myJob === "로그" || myJob === "바드" || myJob === "레인저" || myJob === "알케미스트")  {
+                    skillBoxdiv17p1.innerText = `${savincStateDex}`;
+                }
+                skillBoxdiv17p2.innerText = "은신"; // 민첩 굴림
+
+            skillBoxdiv18.className = "skill skill18";
+                skillBoxdiv18input.type = "checkbox";
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "뭉크" || myJob === "로그" || myJob === "아티피서" || myJob === "위저드" || myJob === "소서러" || myJob === "워락")  {   // 생존을 사용 못하는 클래스
+                    skillBoxdiv18input.disabled = true;
+                }
+                skillBoxdiv18p1.innerText = `${fixState(myWis),fixstateWis}`;
+                if(myJob === "팔라딘" || myJob === "클레릭" || myJob === "위저드" || myJob === "워락" || myJob === "드루이드")  {
+                    skillBoxdiv18p1.innerText = `${savincStateWis}`;
+                }
+                skillBoxdiv18p2.innerText = "생존"; // 지혜 굴림
+
+            skillBoxp.className = "skillText";
+            skillBoxp.innerText = "SKILL";
+
+            passiveWisdom.className = "passiveWisdom";
+                passiveWisdomp1.className = "jsPassiveWisdom";
+                passiveWisdomp1.innerText = `${10+(fixState(myWis),Number(fixstateWis))}`;
+                skillBoxdiv12input.addEventListener("change",function() {
+                    if(skillBoxdiv12input.checked)  {
+                        passiveWisdomp1.innerText = `${10+(fixState(myWis),Number(savincStateWis))}`;
+                    }else   {
+                        passiveWisdomp1.innerText = `${10+(fixState(myWis),Number(fixstateWis))}`;
+                    }
+                })
+                passiveWisdomp2.innerText = "상시 지혜 (지각력)";
+
+            otherPro_Lang.className = "otherPro_Lang";
+                otherPro_Langp1.innerText = `갑옷 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
+                otherPro_Langp2.innerText = `무기 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
+                otherPro_Langp3.innerText = `도구 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
+                otherPro_Langp4.innerText = `언어 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
+                otherPro_Langp5.className = `otherPro_LangText`;
+                otherPro_Langp5.innerText = "기타 능숙도 & 언어들";
+                
 }

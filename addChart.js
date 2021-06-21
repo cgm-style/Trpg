@@ -152,7 +152,6 @@ function addChart(num) {
           characterSetBox1JobSelect.appendChild(characterSetBox1JobOption5);
           characterSetBox1JobSelect.appendChild(characterSetBox1JobOption6);
           characterSetBox1JobSelect.appendChild(characterSetBox1JobOption7);
-          characterSetBox1JobSelect.appendChild(characterSetBox1JobOption8);
           characterSetBox1JobSelect.appendChild(characterSetBox1JobOption9);
           characterSetBox1JobSelect.appendChild(characterSetBox1JobOption10);
           characterSetBox1JobSelect.appendChild(characterSetBox1JobOption11);
@@ -219,7 +218,6 @@ function addChart(num) {
           characterSetBox1JobOption5.innerText = "소서러";
           characterSetBox1JobOption6.innerText = "위자드";
           characterSetBox1JobOption7.innerText = "클레릭";
-          characterSetBox1JobOption8.innerText = "페이버드 소울";
           characterSetBox1JobOption9.innerText = "드루이드";
           characterSetBox1JobOption10.innerText = "워락";
           characterSetBox1JobOption11.innerText = "로그";
