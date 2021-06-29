@@ -6,9 +6,26 @@ function loadGame(leadLoadGameSet) {
         start.className = "opacity";  // 바탕이 올라온 후
     }, 500);
 
-    console.dir(leadLoadGameSet);
-
     for(loadSheetNum = 0; loadSheetNum < leadLoadGameSet.length; loadSheetNum++)  {
         addSheet(loadSheetNum,leadLoadGameSet);
     }
+
+    const chartControl = document.querySelectorAll(".chartControl");
+
+    for (const clickChartControl of chartControl) {
+        clickChartControl.addEventListener("click", function(event,chartControl) {
+            if(event.target.parentNode.style.zIndex === "" || event.target.parentNode.style.zIndex === "0")    {
+                // 핵심은 모든 애들한테 한번 0값을 주면 초기화 개념이라 충분히 가능
+                event.target.parentNode.parentNode.style.right = "-35px";
+                let changeResetIndex = document.querySelectorAll(".chartControl");
+                for(resetIndex = 0; resetIndex < document.querySelectorAll(".chartControl").length; resetIndex++){
+                    changeResetIndex[resetIndex].parentNode.style.zIndex = "0";
+                }
+                clickChartControl.parentNode.style.zIndex = "1" ;
+            }else if (event.target.parentNode.style.zIndex === "1") {
+                event.target.parentNode.parentNode.style.right = "-780px";
+                clickChartControl.parentNode.style.zIndex = "0" ;
+            }
+        });
+      }
 }

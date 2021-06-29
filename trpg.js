@@ -16,7 +16,8 @@ let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   classCheck = false, // ?...
   setRollDiceValue = [],  // 다이스 값 넣어놓는 변수
   dicePlusValue = 0,  // 다이스 +값을 위한 변수
-  setLocalKeyValue = []; // 로컬 스토리지에 넣을 변수 값
+  setLocalKeyValue = [], // 로컬 스토리지에 넣을 변수 값
+  checkRightChartBox = 0; // 캐릭터 시트 토글 버튼을 위한 값
 
 function handlePlayingNum(event) {  // 인원수 셋팅
   event.preventDefault(); // submit의 이벤트를 막음

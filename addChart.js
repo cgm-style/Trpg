@@ -175,7 +175,6 @@ function addChart(num) {
     /* 셋팅을 위한 단 */
 
     let setLocalKeyName = `jsCrtSet${num}`;
-    
 
     jsCharacterSetting.className = `jsCharacterSetting jsCrtSet${num}`;
       characterSetBox1.className = "characterSetBox characterSetBox1";
@@ -223,8 +222,462 @@ function addChart(num) {
           characterSetBox1JobOption11.innerText = "로그";
           characterSetBox1JobOption12.innerText = "레인저";
           characterSetBox1JobOption13.innerText = "바드";
-          characterSetBox1JobOption14.innerText = "아티피서";
-          characterSetBox1JobOption15.innerText = "알케미스트";
+          characterSetBox1JobOption14.innerText = "-추가예정-";
+          characterSetBox1JobOption15.innerText = "-추가예정-";
+
+          
+
+        characterSetBox1JobSelect.addEventListener("select",function(event)  {
+          let checkAddBox = event.target;
+
+          console.log(checkAddBox.parentNode);
+          let checkJobSet = characterSetBox1JobSelect.value,
+              checkJobSetBox = document.createElement("form"),
+              checkJobSetBoxdiv1 = document.createElement("div"),
+                checkJobSetBoxdiv1input1 = document.createElement("input"),
+                checkJobSetBoxdiv1p1 = document.createElement("p"),
+                checkJobSetBoxdiv1input2 = document.createElement("input"),
+                checkJobSetBoxdiv1p2 = document.createElement("p"),
+              checkJobSetBoxdiv2 = document.createElement("div"),
+                checkJobSetBoxdiv2input1 = document.createElement("input"),
+                checkJobSetBoxdiv2p1 = document.createElement("p"),
+                checkJobSetBoxdiv2input2 = document.createElement("input"),
+                checkJobSetBoxdiv2p2 = document.createElement("p"),
+              checkJobSetBoxdiv3 = document.createElement("div"),
+                checkJobSetBoxdiv3input1 = document.createElement("input"),
+                checkJobSetBoxdiv3p1 = document.createElement("p"),
+                checkJobSetBoxdiv3input2 = document.createElement("input"),
+                checkJobSetBoxdiv3p2 = document.createElement("p"),
+              checkJobSetBoxdiv4 = document.createElement("div"),
+                checkJobSetBoxdiv4input1 = document.createElement("input"),
+                checkJobSetBoxdiv4p1 = document.createElement("p"),
+                checkJobSetBoxdiv4input2 = document.createElement("input"),
+                checkJobSetBoxdiv4p2 = document.createElement("p");
+              checkJobSetBoxsubmit = document.createElement("input");
+
+          checkAddBox.parentNode.appendChild(checkJobSetBox);
+            checkJobSetBox.appendChild(checkJobSetBoxdiv1);
+              checkJobSetBoxdiv1.appendChild(checkJobSetBoxdiv1input1);
+              checkJobSetBoxdiv1.appendChild(checkJobSetBoxdiv1p1);
+              checkJobSetBoxdiv1.appendChild(checkJobSetBoxdiv1input2);
+              checkJobSetBoxdiv1.appendChild(checkJobSetBoxdiv1p2);
+            checkJobSetBox.appendChild(checkJobSetBoxdiv2);
+              checkJobSetBoxdiv2.appendChild(checkJobSetBoxdiv2input1);
+              checkJobSetBoxdiv2.appendChild(checkJobSetBoxdiv2p1);
+              checkJobSetBoxdiv2.appendChild(checkJobSetBoxdiv2input2);
+              checkJobSetBoxdiv2.appendChild(checkJobSetBoxdiv2p2);
+            checkJobSetBox.appendChild(checkJobSetBoxdiv3);
+              checkJobSetBoxdiv3.appendChild(checkJobSetBoxdiv3input1);
+              checkJobSetBoxdiv3.appendChild(checkJobSetBoxdiv3p1);
+              checkJobSetBoxdiv3.appendChild(checkJobSetBoxdiv3input2);
+              checkJobSetBoxdiv3.appendChild(checkJobSetBoxdiv3p2);
+            checkJobSetBox.appendChild(checkJobSetBoxdiv4);
+              checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4input1);
+              checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4p1);
+              checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4input2);
+              checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4p2);
+            checkJobSetBox.appendChild(checkJobSetBoxsubmit);
+
+            if(checkJobSet === "파이터")  {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "체인 메일,";
+              checkJobSetBoxdiv1p1.innerText = "체인 메일,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.value = "레더아머,롱보우,화살 20개,";
+              checkJobSetBoxdiv1p2.innerText = "레더아머,롱보우,화살 20개,";
+              
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "군용 무기,방패,";
+              checkJobSetBoxdiv2p1.innerText = "군용 무기,방패,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "군용 무기 2개,";
+              checkJobSetBoxdiv2p2.innerText = "군용 무기 2개,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "라이트 크로스보우,볼트 20개,";
+              checkJobSetBoxdiv3p1.innerText = "라이트 크로스보우,볼트 20개,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "핸드액스 2개,";
+              checkJobSetBoxdiv3p2.innerText = "핸드액스 2개,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "던전 탐색자 꾸러미,";
+              checkJobSetBoxdiv4p1.innerText = "던전 탐색자 꾸러미,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,";
+              checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
+            }else if (checkJobSet === "팔라딘") {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "체인메일,성표,";
+              checkJobSetBoxdiv1p1.innerText = "체인메일,성표,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+              checkJobSetBoxdiv1p2.innerText = "";
+
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "군용 무기,방패,";
+              checkJobSetBoxdiv2p1.innerText = "군용 무기,방패,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "군용 무기 2개,";
+              checkJobSetBoxdiv2p2.innerText = "군용 무기 2개,";
+  
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "자벨린 5개,";
+              checkJobSetBoxdiv3p1.innerText = "자벨린 5개,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "단순 근접 무기,";
+              checkJobSetBoxdiv3p2.innerText = "단순 근접 무기,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "사제 꾸러미,";
+              checkJobSetBoxdiv4p1.innerText = "사제 꾸러미,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,";
+              checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
+            }else if(checkJobSet === "바바리안")  {
+              checkJobSetBoxdiv1input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv1input1.value = "그레이트 액스,";
+              checkJobSetBoxdiv1p1.innerText = "그레이트 액스,";
+              checkJobSetBoxdiv1input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv1input2.value = "군용 근접 무기,";
+              checkJobSetBoxdiv1p2.innerText = "군용 근접 무기,";
+
+              checkJobSetBoxdiv2input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv2input1.value = "핸드 액스 2개,";
+              checkJobSetBoxdiv2p1.innerText = "핸드 액스 2개,";
+              checkJobSetBoxdiv2input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv2input2.value = "단순 무기,";
+              checkJobSetBoxdiv2p2.innerText = "단순 무기,";
+  
+              checkJobSetBoxdiv3input1.name = "jobItemTool";
+              checkJobSetBoxdiv3input1.value = "탐험가 꾸러미,자벨린 4개,";
+              checkJobSetBoxdiv3p1.innerText = "탐험가 꾸러미,자벨린 4개,";
+              checkJobSetBoxdiv3input2.name = "jobItemTool";
+              checkJobSetBoxdiv3input2.disabled = true;
+              checkJobSetBoxdiv3p2.innerText = "";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemArmor";
+              checkJobSetBoxdiv4input1.value = "";
+              checkJobSetBoxdiv4input1.checked = true;
+              checkJobSetBoxdiv4input1.disabled = true;
+              checkJobSetBoxdiv4input2.name = "jobItemArmor";
+              checkJobSetBoxdiv4input2.disabled = true;
+            }else if(checkJobSet === "클레릭")  {
+              let checkJobSetBoxdiv1input3 = document.createElement("input"),
+                  checkJobSetBoxdiv1p3 = document.createElement("p");
+
+                  checkJobSetBoxdiv1.appendChild(checkJobSetBoxdiv1input3);
+                  checkJobSetBoxdiv1.appendChild(checkJobSetBoxdiv1p3);
+
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "스케일 메일,";
+              checkJobSetBoxdiv1p1.innerText = "스케일 메일,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.value = "레더 아머,";
+              checkJobSetBoxdiv1p2.innerText = "레더 아머,";
+              checkJobSetBoxdiv1input3.type = "radio";
+              checkJobSetBoxdiv1input3.name = "jobItemArmor";
+              checkJobSetBoxdiv1input3.value = "(숙련시) 체인 메일,";
+              checkJobSetBoxdiv1p3.innerText = "(숙련시) 체인 메일,";
+
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "메이스,";
+              checkJobSetBoxdiv2p1.innerText = "메이스,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "(숙련시) 워해머,";
+              checkJobSetBoxdiv2p2.innerText = "(숙련시) 워해머,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "라이트 크로스보우,볼트 20개,";
+              checkJobSetBoxdiv3p1.innerText = "라이트 크로스보우,볼트 20개,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "단순무기 1개,";
+              checkJobSetBoxdiv3p2.innerText = "단순무기 1개,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "사제 꾸러미,방패,성표,";
+              checkJobSetBoxdiv4p1.innerText = "사제 꾸러미,방패,성표,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,방패,성표,";
+              checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,방패,성표,";
+            }else if(checkJobSet === "뭉크")  {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "";
+              checkJobSetBoxdiv1input1.checked = true;
+              checkJobSetBoxdiv1input1.disabled = true;
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "숏소드,";
+              checkJobSetBoxdiv2p1.innerText = "숏소드,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "단순무기,";
+              checkJobSetBoxdiv2p2.innerText = "단순무기,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "";
+              checkJobSetBoxdiv3input1.checked = true;
+              checkJobSetBoxdiv3input1.disabled = true;
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.disabled = true;
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "던전탐색자 꾸러미,다트 10개,";
+              checkJobSetBoxdiv4p1.innerText = "던전탐색자 꾸러미,다트 10개,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,다트 10개,";
+              checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,다트 10개,";
+            }else if(checkJobSet === "로그")  {
+              let checkJobSetBoxdiv4input3 = document.createElement("input"),
+                  checkJobSetBoxdiv4p3 = document.createElement("p");
+
+                  checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4input3);
+                  checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4p3);
+
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "레더 아머,";
+              checkJobSetBoxdiv1p1.innerText = "레더 아머,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "레이피어,";
+              checkJobSetBoxdiv2p1.innerText = "레이피어,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "숏소드,";
+              checkJobSetBoxdiv2p2.innerText = "숏소드,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "숏보우,화살20개,";
+              checkJobSetBoxdiv3p1.innerText = "숏보우,화살20개,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "숏소드,";
+              checkJobSetBoxdiv3p2.innerText = "숏소드,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "도둑 꾸러미,대거 2개,도둑 도구,";
+              checkJobSetBoxdiv4p1.innerText = "도둑 꾸러미,대거 2개,도둑 도구,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "던전 탐색자 꾸러미,대거 2개,도둑 도구,";
+              checkJobSetBoxdiv4p2.innerText = "던전 탐색자 꾸러미,대거 2개,도둑 도구,";
+              checkJobSetBoxdiv4input3.type = "radio";
+              checkJobSetBoxdiv4input3.name = "jobItemTool";
+              checkJobSetBoxdiv4input3.value = "탐험가 꾸러미,대거 2개,도둑 도구,";
+              checkJobSetBoxdiv4p3.innerText = "탐험가 꾸러미,대거 2개,도둑 도구,";
+            }else if(checkJobSet === "바드")  {
+              let checkJobSetBoxdiv2input3 = document.createElement("input"),
+                  checkJobSetBoxdiv2p3 = document.createElement("p");
+
+                  checkJobSetBoxdiv2.appendChild(checkJobSetBoxdiv2input3);
+                  checkJobSetBoxdiv2.appendChild(checkJobSetBoxdiv2p3);
+
+
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "레더 아머,";
+              checkJobSetBoxdiv1p1.innerText = "레더 아머,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "레이피어,";
+              checkJobSetBoxdiv2p1.innerText = "레이피어,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "롱소드,";
+              checkJobSetBoxdiv2p2.innerText = "롱소드,";
+              checkJobSetBoxdiv2input3.type = "radio";
+              checkJobSetBoxdiv2input3.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input3.value = "단순 무기 중 하나,";
+              checkJobSetBoxdiv2p3.innerText = "단순 무기 중 하나,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "류트,";
+              checkJobSetBoxdiv3p1.innerText = "류트,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "악기 중 하나,";
+              checkJobSetBoxdiv3p2.innerText = "악기 중 하나,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "외교관 꾸러미,대거,";
+              checkJobSetBoxdiv4p1.innerText = "외교관 꾸러미,대거,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "예능인 꾸러미,대거,";
+              checkJobSetBoxdiv4p2.innerText = "예능인 꾸러미,대거,";
+            }else if(checkJobSet === "레인저")  {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "스케일 메일,";
+              checkJobSetBoxdiv1p1.innerText = "스케일 메일,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.value = "레더 아머,";
+              checkJobSetBoxdiv1p2.innerText = "레더 아머,";
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "숏 소드 2개,";
+              checkJobSetBoxdiv2p1.innerText = "숏 소드 2개,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "단순 근접 무기 2개,";
+              checkJobSetBoxdiv2p2.innerText = "단순 근접 무기 2개,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "롱 보우,화살 20개,";
+              checkJobSetBoxdiv3p1.innerText = "롱 보우,화살 20개,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.disabled = true;
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "던전 탐색자 꾸러미,";
+              checkJobSetBoxdiv4p1.innerText = "던전 탐색자 꾸러미,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,";
+              checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
+            }else if(checkJobSet === "위자드")  {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "";
+              checkJobSetBoxdiv1input1.checked = true;
+              checkJobSetBoxdiv1input1.disabled = true;
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "쿼터 스태프,";
+              checkJobSetBoxdiv2p1.innerText = "쿼터 스태프,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "대거,";
+              checkJobSetBoxdiv2p2.innerText = "대거,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "구성 요소 주머니,";
+              checkJobSetBoxdiv3p1.innerText = "구성 요소 주머니,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "비전 매개체,";
+              checkJobSetBoxdiv3p2.innerText = "비전 매개체,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "학자 꾸러미,주문책,";
+              checkJobSetBoxdiv4p1.innerText = "학자 꾸러미,주문책,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,주문책,";
+              checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,주문책,";
+            }else if(checkJobSet === "소서러")  {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "";
+              checkJobSetBoxdiv1input1.checked = true;
+              checkJobSetBoxdiv1input1.disabled = true;
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "라이트 크로스 보우,볼트 20개,";
+              checkJobSetBoxdiv2p1.innerText = "라이트 크로스 보우,볼트 20개,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "단순 무기,";
+              checkJobSetBoxdiv2p2.innerText = "단순 무기,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "구성 요소 주머니,";
+              checkJobSetBoxdiv3p1.innerText = "구성 요소 주머니,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "비전 매개체,";
+              checkJobSetBoxdiv3p2.innerText = "비전 매개체,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "던전 탐색자 꾸러미,대거 2개,";
+              checkJobSetBoxdiv4p1.innerText = "던전 탐색자 꾸러미,대거 2개,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,대거 2개,";
+              checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,대거 2개,";
+            }else if(checkJobSet === "워락")  {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "레더 아머,";
+              checkJobSetBoxdiv1p1.innerText = "레더 아머,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "라이트 크로스 보우,볼트 20개,";
+              checkJobSetBoxdiv2p1.innerText = "라이트 크로스 보우,볼트 20개,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "단순 무기,";
+              checkJobSetBoxdiv2p2.innerText = "단순 무기,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "구성 요소 주머니,";
+              checkJobSetBoxdiv3p1.innerText = "구성 요소 주머니,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "비전 매개체,";
+              checkJobSetBoxdiv3p2.innerText = "비전 매개체,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "학자 꾸러미,단순 무기,대거 2개,";
+              checkJobSetBoxdiv4p1.innerText = "학자 꾸러미,단순 무기,대거 2개,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.value = "던전 탐색자 꾸러미,단순 무기,대거 2개,";
+              checkJobSetBoxdiv4p2.innerText = "던전 탐색자 꾸러미,단순 무기,대거 2개,";
+            }else if(checkJobSet === "드루이드")  {
+              checkJobSetBoxdiv1input1.name = "jobItemArmor";
+              checkJobSetBoxdiv1input1.value = "레더 아머,";
+              checkJobSetBoxdiv1p1.innerText = "레더 아머,";
+              checkJobSetBoxdiv1input2.name = "jobItemArmor";
+              checkJobSetBoxdiv1input2.disabled = true;
+  
+              checkJobSetBoxdiv2input1.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input1.value = "시미터,";
+              checkJobSetBoxdiv2p1.innerText = "시미터,";
+              checkJobSetBoxdiv2input2.name = "jobItemWeapon";
+              checkJobSetBoxdiv2input2.value = "단순 근접 무기,";
+              checkJobSetBoxdiv2p2.innerText = "단순 근접 무기,";
+              
+              checkJobSetBoxdiv3input1.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input1.value = "목제 방패,";
+              checkJobSetBoxdiv3p1.innerText = "목제 방패,";
+              checkJobSetBoxdiv3input2.name = "jobItemSubWeapon";
+              checkJobSetBoxdiv3input2.value = "단순 무기,";
+              checkJobSetBoxdiv3p2.innerText = "단순 무기,";
+  
+              checkJobSetBoxdiv4input1.name = "jobItemTool";
+              checkJobSetBoxdiv4input1.value = "탐험가 꾸러미,드루이드 매개체,";
+              checkJobSetBoxdiv4p1.innerText = "탐험가 꾸러미,드루이드 매개체,";
+              checkJobSetBoxdiv4input2.name = "jobItemTool";
+              checkJobSetBoxdiv4input2.disabled = true;
+            }
+
+            checkJobSetBoxdiv1input1.required = true;
+            checkJobSetBoxdiv1input2.required = true;
+
+            checkJobSetBoxdiv2input1.required = true;
+            checkJobSetBoxdiv2input2.required = true;
+
+            checkJobSetBoxdiv3input1.required = true;
+            checkJobSetBoxdiv3input2.required = true;
+
+            checkJobSetBoxdiv4input1.required = true;
+            checkJobSetBoxdiv4input2.required = true;
+
+          checkJobSetBox.className = "checkJobSetBox";
+
+          checkJobSetBoxdiv1.className = "checkJobSetBoxdiv1";
+            checkJobSetBoxdiv1input1.type = "radio";
+            checkJobSetBoxdiv1input2.type = "radio";
+          checkJobSetBoxdiv2.className = "checkJobSetBoxdiv2";
+            checkJobSetBoxdiv2input1.type = "radio";
+            checkJobSetBoxdiv2input2.type = "radio";
+          checkJobSetBoxdiv3.className = "checkJobSetBoxdiv3";
+            checkJobSetBoxdiv3input1.type = "radio";
+            checkJobSetBoxdiv3input2.type = "radio";
+          checkJobSetBoxdiv4.className = "checkJobSetBoxdiv4";
+            checkJobSetBoxdiv4input1.type = "radio";
+            checkJobSetBoxdiv4input2.type = "radio";
+          checkJobSetBoxsubmit.type = "submit";
+          checkJobSetBoxsubmit.value = "(박스당 하나씩)장비선택 완료"
+
+          checkJobSetBoxsubmit.addEventListener("click",function(event) {
+            event.preventDefault();
+
+            event.target.parentNode.style.display = "none";
+          })
+        })
         
         characterSetBox1Submit.type = "submit";
         characterSetBox1Submit.className = "characterNextSet1";
@@ -357,6 +810,10 @@ function addChart(num) {
 
             function selectDiceNextSubmit(event) {  // submit 버튼 클릭 이벤트  (dice 방식)
                 event.preventDefault(); // 이벤트 막음
+                let myJobArmor = characterSetBox1Form.querySelector('input[name="jobItemArmor"]:checked').value,  // 직업에 따른 방어구
+                myJobWeapon = characterSetBox1Form.querySelector('input[name="jobItemWeapon"]:checked').value,  // 직업에 따른 무기
+                myJobSubWeapon = characterSetBox1Form.querySelector('input[name="jobItemSubWeapon"]:checked').value, // 직업에 따른 서브 무기
+                myJobTool = characterSetBox1Form.querySelector('input[name="jobItemTool"]:checked').value;   // 직업에 따른 도구
 
                 let checkd = {  
                     level : 0,  // 레벨
@@ -369,6 +826,11 @@ function addChart(num) {
                     name : characterSetBox1Input1.value,  // 이름
                     age : characterSetBox1Input2.value,   // 나이
                     job : characterSetBox1JobSelect.value,  // 직업
+                    jobArmor : myJobArmor,  // 직업에 따른 방어구
+                    jobWeapon : myJobWeapon,  // 직업에 따른 무기
+                    jobSubWeapon : myJobSubWeapon, // 직업에 따른 서브 무기
+                    jobTool : myJobTool,   // 직업에 따른 도구
+                    rang : null,   // 종족에 따른 언어
                     speed : 0,  // 스피드
                     movement : 0, // 이동속도
                     jsMaxHitPoint : 0,  // 최대 히트 포인트
@@ -492,16 +954,19 @@ function addChart(num) {
               characterSetBox2PointBuyPointBoxPInput.value = `${MyPoint}`; // 계산된 값을 입력
 
               totalNowPoint = totalChangePoint; // 변경된 총합 값을 저장
-
           }
 
           characterSetBox2PointBuySubmit.addEventListener("click",selectPointNextSubmit);
 
             function selectPointNextSubmit(event) {  // submit 버튼 클릭 이벤트 (point 방식)
                 event.preventDefault(); // 이벤트 막음
+                let myJobArmor = characterSetBox1Form.querySelector('input[name="jobItemArmor"]:checked').value,  // 직업에 따른 방어구
+                myJobWeapon = characterSetBox1Form.querySelector('input[name="jobItemWeapon"]:checked').value,  // 직업에 따른 무기
+                myJobSubWeapon = characterSetBox1Form.querySelector('input[name="jobItemSubWeapon"]:checked').value, // 직업에 따른 서브 무기
+                myJobTool = characterSetBox1Form.querySelector('input[name="jobItemTool"]:checked').value;   // 직업에 따른 도구
 
                 let checkd = {  // 오브젝트로 저장
-                    level : 0,  // 레벨
+                    level : 1,  // 레벨
                     exp : 0,  // 경험치
                     inspiration : 0, // 고양감 점수
                     leftHand : null, // 왼손
@@ -511,6 +976,11 @@ function addChart(num) {
                     name : characterSetBox1Input1.value,    // 이름
                     age : characterSetBox1Input2.value,     // 나이
                     job : characterSetBox1JobSelect.value,  // 직업
+                    jobArmor : myJobArmor,  // 직업에 따른 방어구
+                    jobWeapon : myJobWeapon,  // 직업에 따른 무기
+                    jobSubWeapon : myJobSubWeapon, // 직업에 따른 서브 무기
+                    jobTool : myJobTool,   // 직업에 따른 도구
+                    rang : null,   // 종족에 따른 언어
                     speed : 0,  // 스피드
                     movement : 0, // 이동속도
                     jsMaxHitPoint : 0,  // 최대 히트 포인트

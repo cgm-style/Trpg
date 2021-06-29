@@ -11,14 +11,17 @@ function addSheet(num,leadLoadGameSet) {
         myEntp = leadLoadGameSet[num].Entp, // 종족
         mySpeed = leadLoadGameSet[num].speed,   // 이동속도
         myLevel = leadLoadGameSet[num].level,   // 레벨
+        myWeapon = leadLoadGameSet[num].jobWeapon,  // 무기
+        mySubWeapon = leadLoadGameSet[num].jobSubWeapon, // 서브 무기
+        myArmor =   leadLoadGameSet[num].jobArmor,  // 방어구
+        myTool  = leadLoadGameSet[num].jobTool, // 도구 
+        handyWeapon = null, // 능숙한 무기
+        handyArmor = null,  // 능숙한 방어구
+        handyTool = null,   // 능숙한 도구
         myInspiration = leadLoadGameSet[num].inspiration,   // 고양감
         myjsMaxHitPoint = leadLoadGameSet[num].jsMaxHitPoint,  // 최대 히트 포인트
         myNowHitPoint = leadLoadGameSet[num].nowHitPoint,   // 현재 히트 포인트
         mySubHitPoint = leadLoadGameSet[num].subHitPoint,   // 임시 히트 포인트
-        jobArmor = 0,  // 직업에 따른 방어구
-        jobWapon = 0,  // 직업에 따른 무기
-        jobTool = 0,   // 직업에 따른 도구
-        jobrang = 0,   // 직업에 따른 언어
         setJobHitPoint = 0, // 직업에 따른 기본 히트 포인트
         myHitDice = 0,  //  히트 다이스
         fixset = 0, // 수정치 입력할 변수
@@ -102,42 +105,78 @@ function addSheet(num,leadLoadGameSet) {
         if(myJob === "파이터")    { // 직업에 따른 수치들
             myHitDice = "1d10"
             setJobHitPoint = 10;
-            jobArmor = ""
+            handyWeapon = "단순 무기 및 군용 무기 전체";
+            handyArmor = "모든 갑옷과 방패";
+            handyTool = "없음";
         }else if(myJob === "바바리안")  {   
             myHitDice = "1d12"
             setJobHitPoint = 12;
+            handyWeapon = "단순 무기 및 군용 무기 전체";
+            handyArmor = "경장 갑옷, 평장 갑옷, 방패";
+            handyTool = "없음";
         }else if(myJob === "팔라딘")  {
             myHitDice = "1d10"
             setJobHitPoint = 10;
+            handyWeapon = "단순 무기 및 군용 무기 전체";
+            handyArmor = "모든 갑옷과 방패";
+            handyTool = "없음";
         }else if(myJob === "뭉크")  {
-
+            myHitDice = "1d8"
+            setJobHitPoint = 8;
+            handyWeapon = "단순 무기 전체, 숏소드";
+            handyArmor = "없음";
+            handyTool = "장인 도구나 악기 중 하나 선택";
         }else if(myJob === "소서러")  {
             myHitDice = "1d6"
             setJobHitPoint = 6;
+            handyWeapon = "대거, 다트, 슬링, 쿼터스태프, 라이트 크로스보우";
+            handyArmor = "없음";
+            handyTool = "없음";
         }else if(myJob === "위자드")  {
             myHitDice = "1d6"
             setJobHitPoint = 6;
+            handyWeapon = "대거, 다트, 슬링, 쿼터스태프, 라이트 크로스보우";
+            handyArmor = "없음";
+            handyTool = "없음";
         }else if(myJob === "클레릭")  {
             myHitDice = "1d8"
             setJobHitPoint = 8;
+            handyWeapon = "단순 무기 전체";
+            handyArmor = "경장 갑옷, 평장 갑옷, 방패";
+            handyTool = "없음";
         }else if(myJob === "페이버드 소울")  {
             myHitDice = "1d8"
             setJobHitPoint = 8;
         }else if(myJob === "드루이드")  {
             myHitDice = "1d8"
             setJobHitPoint = 8;
+            handyWeapon = "클럽, 대거, 다트, 자벨린, 메이스, 쿼터스태프, 시미터, 시클, 슬링, 스피어";
+            handyArmor = "경장 갑옷, 평장 갑옷, 방패(금속으로 만들어진 갑옷,방패는 사용 불가)";
+            handyTool = "약초학 키트";
         }else if(myJob === "워락")  {
             myHitDice = "1d8"
             setJobHitPoint = 8;
+            handyWeapon = "단순 무기 전체";
+            handyArmor = "경장 갑옷";
+            handyTool = "없음";
         }else if(myJob === "로그")  {
             myHitDice = "1d8"
             setJobHitPoint = 8;
+            handyWeapon = "단순 무기 전체, 숏소드, 핸드 크로스보우, 레이피어, 롱소드";
+            handyArmor = "경장 갑옷";
+            handyTool = "도둑 도구";
         }else if(myJob === "레인저")  {
             myHitDice = "1d10"
             setJobHitPoint = 10;
+            handyWeapon = "단순 무기 및 군용 무기 전체";
+            handyArmor = "경장 갑옷, 평장 갑옷, 방패";
+            handyTool = "없음";
         }else if(myJob === "바드")  {
             myHitDice = "1d8"
             setJobHitPoint = 8;
+            handyWeapon = "단순 무기 전체, 핸드 크로스보우, 롱소드, 레이피어, 숏소드";
+            handyArmor = "경장 갑옷";
+            handyTool = "악기 중 3종 선택";
         }else if(myJob === "아티피서")  {
 
         }else if(myJob === "알케미스트")  {
@@ -209,9 +248,6 @@ function addSheet(num,leadLoadGameSet) {
             myNowHitPoint = Number(savincStateCon) + Number(setJobHitPoint);
             
         }
-
-
-
 
     /* 생성 정의 하는 단 */
     const chartBox = document.createElement("div"),
@@ -735,8 +771,11 @@ function addSheet(num,leadLoadGameSet) {
     /* 값 입력 하는 단 */
 
     chartBox.className = `chartBox chartBox${num}`;
-        chartControl.className = "chartControl";
+        chartControl.className = `chartControl`;
+        chartControl.id = `chartControl${num+1}`;
+        chartControl.style.top = `${0+((num)*80)}px`;
         chartControl.innerText = `${num+1}번 시트`;
+
         chartContainer.className = "chartContainer";
             main_text.className = `main_text`;
             main_text.innerText = `${myName}`;
@@ -1137,11 +1176,84 @@ function addSheet(num,leadLoadGameSet) {
                 passiveWisdomp2.innerText = "상시 지혜 (지각력)";
 
             otherPro_Lang.className = "otherPro_Lang";
-                otherPro_Langp1.innerText = `갑옷 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
-                otherPro_Langp2.innerText = `무기 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
-                otherPro_Langp3.innerText = `도구 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
-                otherPro_Langp4.innerText = `언어 : ${otherPro_Langp1span.innerText = `중갑, 경갑, 평갑, 방패`}`;
+                otherPro_Langp1.innerText = `갑옷 : ${handyArmor}`;
+                otherPro_Langp2.innerText = `무기 : ${handyWeapon}`;
+                otherPro_Langp3.innerText = `도구 : ${handyTool}`;
+                otherPro_Langp4.innerText = `언어 : ${otherPro_Langp1span.innerText = `asd`}`;
                 otherPro_Langp5.className = `otherPro_LangText`;
                 otherPro_Langp5.innerText = "기타 능숙도 & 언어들";
+            
+            atkMagBox.className = "atkMagBox";
+                atkMagBoxp1.className = "subtext"
+                    atkMagBoxp1span1.innerText = "NAME";
+                    atkMagBoxp1span2.innerText = "ATK BONUS";
+                    atkMagBoxp1span3.innerText = "DAMAGE/TYPE";
+
+                    atkMagBoxdiv1input1.className = "AtkName";
+                    atkMagBoxdiv1input1.type = "text";
+                    atkMagBoxdiv1input1.value = `-`;
+                    atkMagBoxdiv1input2.className = "AtkBonus";
+                    atkMagBoxdiv1input2.type = "text";
+                    atkMagBoxdiv1input2.value = `-`;
+                    atkMagBoxdiv1input3.className = "AtkDamage";
+                    atkMagBoxdiv1input3.type = "text";
+                    atkMagBoxdiv1input3.value = `-`;
+
+                    atkMagBoxdiv2input1.className = "AtkName";
+                    atkMagBoxdiv2input1.type = "text";
+                    atkMagBoxdiv2input1.value = `-`;
+                    atkMagBoxdiv2input2.className = "AtkBonus";
+                    atkMagBoxdiv2input2.type = "text";
+                    atkMagBoxdiv2input2.value = `-`;
+                    atkMagBoxdiv2input3.className = "AtkDamage";
+                    atkMagBoxdiv2input3.type = "text";
+                    atkMagBoxdiv2input3.value = `-`;
+
+                    atkMagBoxdiv3input1.className = "AtkName";
+                    atkMagBoxdiv3input1.type = "text";
+                    atkMagBoxdiv3input1.value = `-`;
+                    atkMagBoxdiv3input2.className = "AtkBonus";
+                    atkMagBoxdiv3input2.type = "text";
+                    atkMagBoxdiv3input2.value = `-`;
+                    atkMagBoxdiv3input3.className = "AtkDamage";
+                    atkMagBoxdiv3input3.type = "text";
+                    atkMagBoxdiv3input3.value = `-`;
+
+                    atkMagBoxtextarea.innerText = "입력해주세요";
+                    atkMagBoxtextarea.className = "atkMagBoxtextarea";
+                atkMagBoxp2.innerText = "공격 & 주문사용";
+
+
+            equBox.className = "equBox";
+                equBoxdiv1.className = "cpBox";
+                    equBoxdiv1p.innerText = "동화 : ";
+                    equBoxdiv1input.type = "text";
+                    equBoxdiv1input.value = "0";
+                equBoxdiv2.className = "spBox";
+                    equBoxdiv2p.innerText = "은화 : ";
+                    equBoxdiv2input.type = "text";
+                    equBoxdiv2input.value = "0";
+                equBoxdiv3.className = "epBox";
+                    equBoxdiv3p.innerText = "호박금화 : ";
+                    equBoxdiv3input.type = "text";
+                    equBoxdiv3input.value = "0";
+                equBoxdiv4.className = "gpBox";
+                    equBoxdiv4p.innerText = "금화 : ";
+                    equBoxdiv4input.type = "text";
+                    equBoxdiv4input.value = "0";
+                equBoxdiv5.className = "ppBox";
+                    equBoxdiv5p.innerText = "백금화 : ";
+                    equBoxdiv5input.type = "text";
+                    equBoxdiv5input.value = "0";
+                equBoxtextarea.className = "equtext";
+
+                equBoxtextarea.innerText = `${myWeapon+mySubWeapon+myArmor+myTool}`;
+                equBoxp.className = "equTitle";
+                equBoxp.innerText = "장비상자";
+
+            traitsBox.className = "traitsBox";
+                traitsBoxtextarea.className = "traits";
+                traitsBoxtextarea.value = "입력해주세요";
+                traitsBoxp.innerText = "캐릭터 특성 & 특기";
                 
 }
