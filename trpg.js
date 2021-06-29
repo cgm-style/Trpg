@@ -90,6 +90,7 @@ function init() { // 게임시작 전체 컨트롤
 
     if(leadLoadGameSet !== null)    { // 만약 저장된 값이 있다면
       loadGame(leadLoadGameSet);
+      totalDiceTool(12,6)
     } else  {
       startGame();
     }

@@ -252,8 +252,10 @@ function addChart(num) {
                 checkJobSetBoxdiv4input1 = document.createElement("input"),
                 checkJobSetBoxdiv4p1 = document.createElement("p"),
                 checkJobSetBoxdiv4input2 = document.createElement("input"),
-                checkJobSetBoxdiv4p2 = document.createElement("p");
+                checkJobSetBoxdiv4p2 = document.createElement("p"),
+              checkJobSetBoxMoneyRolling = document.createElement("button"),
               checkJobSetBoxsubmit = document.createElement("input");
+
 
           checkAddBox.parentNode.appendChild(checkJobSetBox);
             checkJobSetBox.appendChild(checkJobSetBoxdiv1);

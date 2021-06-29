@@ -15,6 +15,11 @@ function addSheet(num,leadLoadGameSet) {
         mySubWeapon = leadLoadGameSet[num].jobSubWeapon, // 서브 무기
         myArmor =   leadLoadGameSet[num].jobArmor,  // 방어구
         myTool  = leadLoadGameSet[num].jobTool, // 도구 
+        CP = "a", // 동화
+        SP = "a", // 은화
+        EP = "a", // 호박금화
+        GP = "a", // 금화
+        PP = "a", // 백금화
         handyWeapon = null, // 능숙한 무기
         handyArmor = null,  // 능숙한 방어구
         handyTool = null,   // 능숙한 도구
