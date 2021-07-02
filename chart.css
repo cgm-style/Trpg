@@ -635,3 +635,34 @@
     width: 207px;
     height: 427px;
 }
+
+/* 캐릭터 시트 넘버 박스 컬러 설정 */
+#chartControl1  {background:#f6d258;}
+#chartControl2  {background:#efcec5;}
+#chartControl3  {background:#d1af94;}
+#chartControl4  {background:#97d5e0;}
+#chartControl5  {background:#88b14b;}
+#chartControl6  {background:#ef562d;}
+#chartControl7  {background:#d13076;}
+#chartControl8  {background:#5587a2;}
+#chartControl9  {background:#5c7148;}
+#chartControl10  {background:#0c4c8a;}
+
+/* 초기 자금 주사위 */
+.firstMoneyDice {
+    background: black !important;
+    color: white;
+    padding: 5px 20px !important;
+    border: 2px solid white;
+    border-radius: 10px !important;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:all 0.5s;
+}
+.firstMoneyDice:hover {
+    transform: scale(1.02);
+}
+.firstMoneyDice:active {
+    transform: scale(0.98);
+}

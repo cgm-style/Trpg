@@ -1,4 +1,6 @@
 function addChart(num) {
+    let chkMoney = 0;
+
     const jsCharacterSetting = document.createElement("div"), // 생성을 위한 정의 시트 박스
 
         characterSetBox1 = document.createElement("div"), //  첫번째 - 이름,나이,종족,클래스 선택 박스
@@ -223,14 +225,14 @@ function addChart(num) {
           characterSetBox1JobOption12.innerText = "레인저";
           characterSetBox1JobOption13.innerText = "바드";
           characterSetBox1JobOption14.innerText = "-추가예정-";
-          characterSetBox1JobOption15.innerText = "-추가예정-";
+          characterSetBox1JobOption15.innerText = "선택해주세요";
 
+          characterSetBox1JobOption15.selected = true;
           
 
-        characterSetBox1JobSelect.addEventListener("select",function(event)  {
+        characterSetBox1JobSelect.addEventListener("change",function(event)  {
           let checkAddBox = event.target;
 
-          console.log(checkAddBox.parentNode);
           let checkJobSet = characterSetBox1JobSelect.value,
               checkJobSetBox = document.createElement("form"),
               checkJobSetBoxdiv1 = document.createElement("div"),
@@ -253,7 +255,8 @@ function addChart(num) {
                 checkJobSetBoxdiv4p1 = document.createElement("p"),
                 checkJobSetBoxdiv4input2 = document.createElement("input"),
                 checkJobSetBoxdiv4p2 = document.createElement("p"),
-              checkJobSetBoxMoneyRolling = document.createElement("button"),
+              checkJobSetBoxMoneyRolling = document.createElement("div"),
+              checkJobSetBoxMoneyRollingValue = document.createElement("p"),
               checkJobSetBoxsubmit = document.createElement("input");
 
 
@@ -278,7 +281,14 @@ function addChart(num) {
               checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4p1);
               checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4input2);
               checkJobSetBoxdiv4.appendChild(checkJobSetBoxdiv4p2);
+            checkJobSetBox.appendChild(checkJobSetBoxMoneyRolling);
+            checkJobSetBox.appendChild(checkJobSetBoxMoneyRollingValue);
             checkJobSetBox.appendChild(checkJobSetBoxsubmit);
+
+            checkJobSetBoxMoneyRolling.className = "firstMoneyDice";
+            checkJobSetBoxMoneyRolling.value = "초기 자금 주사위";
+            checkJobSetBoxMoneyRolling.innerText = "초기 자금 주사위!";
+            checkJobSetBoxMoneyRollingValue.className = "checkSaveMoney";
 
             if(checkJobSet === "파이터")  {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
@@ -309,6 +319,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,";
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function()  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4)+10}`;
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if (checkJobSet === "팔라딘") {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
               checkJobSetBoxdiv1input1.value = "체인메일,성표,";
@@ -337,6 +353,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,";
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "바바리안")  {
               checkJobSetBoxdiv1input1.name = "jobItemWeapon";
               checkJobSetBoxdiv1input1.value = "그레이트 액스,";
@@ -365,6 +387,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input1.disabled = true;
               checkJobSetBoxdiv4input2.name = "jobItemArmor";
               checkJobSetBoxdiv4input2.disabled = true;
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(2,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "클레릭")  {
               let checkJobSetBoxdiv1input3 = document.createElement("input"),
                   checkJobSetBoxdiv1p3 = document.createElement("p");
@@ -404,6 +432,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,방패,성표,";
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,방패,성표,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "뭉크")  {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
               checkJobSetBoxdiv1input1.value = "";
@@ -432,6 +466,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,다트 10개,";
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,다트 10개,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4)}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "로그")  {
               let checkJobSetBoxdiv4input3 = document.createElement("input"),
                   checkJobSetBoxdiv4p3 = document.createElement("p");
@@ -469,6 +509,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input3.name = "jobItemTool";
               checkJobSetBoxdiv4input3.value = "탐험가 꾸러미,대거 2개,도둑 도구,";
               checkJobSetBoxdiv4p3.innerText = "탐험가 꾸러미,대거 2개,도둑 도구,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "바드")  {
               let checkJobSetBoxdiv2input3 = document.createElement("input"),
                   checkJobSetBoxdiv2p3 = document.createElement("p");
@@ -507,6 +553,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "예능인 꾸러미,대거,";
               checkJobSetBoxdiv4p2.innerText = "예능인 꾸러미,대거,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "레인저")  {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
               checkJobSetBoxdiv1input1.value = "스케일 메일,";
@@ -534,6 +586,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,";
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "위자드")  {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
               checkJobSetBoxdiv1input1.value = "";
@@ -562,6 +620,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,주문책,";
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,주문책,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "소서러")  {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
               checkJobSetBoxdiv1input1.value = "";
@@ -590,6 +654,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "탐험가 꾸러미,대거 2개,";
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,대거 2개,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(3,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "워락")  {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
               checkJobSetBoxdiv1input1.value = "레더 아머,";
@@ -617,6 +687,12 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.value = "던전 탐색자 꾸러미,단순 무기,대거 2개,";
               checkJobSetBoxdiv4p2.innerText = "던전 탐색자 꾸러미,단순 무기,대거 2개,";
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }else if(checkJobSet === "드루이드")  {
               checkJobSetBoxdiv1input1.name = "jobItemArmor";
               checkJobSetBoxdiv1input1.value = "레더 아머,";
@@ -643,6 +719,12 @@ function addChart(num) {
               checkJobSetBoxdiv4p1.innerText = "탐험가 꾸러미,드루이드 매개체,";
               checkJobSetBoxdiv4input2.name = "jobItemTool";
               checkJobSetBoxdiv4input2.disabled = true;
+
+              checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(2,4)+10}`
+                chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
+              })
+
             }
 
             checkJobSetBoxdiv1input1.required = true;
@@ -828,6 +910,11 @@ function addChart(num) {
                     name : characterSetBox1Input1.value,  // 이름
                     age : characterSetBox1Input2.value,   // 나이
                     job : characterSetBox1JobSelect.value,  // 직업
+                    CP : 0, // 동화
+                    SP : 0, // 은화
+                    EP : 0, // 호박금화
+                    GP : chkMoney, // 금화
+                    PP : 0, // 백금화
                     jobArmor : myJobArmor,  // 직업에 따른 방어구
                     jobWeapon : myJobWeapon,  // 직업에 따른 무기
                     jobSubWeapon : myJobSubWeapon, // 직업에 따른 서브 무기
@@ -967,6 +1054,8 @@ function addChart(num) {
                 myJobSubWeapon = characterSetBox1Form.querySelector('input[name="jobItemSubWeapon"]:checked').value, // 직업에 따른 서브 무기
                 myJobTool = characterSetBox1Form.querySelector('input[name="jobItemTool"]:checked').value;   // 직업에 따른 도구
 
+                console.dir(characterSetBox1JobSelect.querySelector(".checkSaveMoney"));
+
                 let checkd = {  // 오브젝트로 저장
                     level : 1,  // 레벨
                     exp : 0,  // 경험치
@@ -978,6 +1067,11 @@ function addChart(num) {
                     name : characterSetBox1Input1.value,    // 이름
                     age : characterSetBox1Input2.value,     // 나이
                     job : characterSetBox1JobSelect.value,  // 직업
+                    CP : 0, // 동화
+                    SP : 0, // 은화
+                    EP : 0, // 호박금화
+                    GP : chkMoney, // 금화
+                    PP : 0, // 백금화
                     jobArmor : myJobArmor,  // 직업에 따른 방어구
                     jobWeapon : myJobWeapon,  // 직업에 따른 무기
                     jobSubWeapon : myJobSubWeapon, // 직업에 따른 서브 무기
