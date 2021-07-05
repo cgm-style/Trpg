@@ -264,9 +264,6 @@ body    {
     cursor: pointer;
 }
 
-.characterSetBox1   {
-}
-
 .characterSetBox1 form  {
     height: 80%;
     top: 8%;
@@ -290,9 +287,6 @@ body    {
     border-radius: 10px;
     font-weight: bold;
     font-size: 20px;
-}
-
-.dice4D6    {
 }
 
 .characterSetBox2 p  {
@@ -362,6 +356,5 @@ body    {
     background-image: url(img/chart.png);
     background-size: 100% 100%;
     position: absolute;
-    right:35
-    px;
+    right:35px;
 }

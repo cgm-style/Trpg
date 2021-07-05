@@ -8,7 +8,8 @@ const start = document.querySelector("#jsStartGame"), // 배경 박스
   explanationBtn = document.querySelector("#explanation"),  // 설명 버튼
   ExplanationContainer = document.querySelector("#Explanation"),  // 설명 박스
   characterNextSet = document.querySelectorAll(".characterNextSet"),
-  jsChartSet = document.querySelector("#jsChartSet"); // 캐릭터 상세 시트 박스
+  jsChartSet = document.querySelector("#jsChartSet"), // 캐릭터 상세 시트 박스
+  diceLog = []; // 주사위 로그를 위한 변수 값.
 
 let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   gameSet = [], // 셋팅에 대한 키 값을 넣을 입력 값
@@ -90,6 +91,7 @@ function init() { // 게임시작 전체 컨트롤
     let leadLoadGameSet = JSON.parse(loadGameSet);  // 저장된 값을 읽을 수 있도록 가공
 
     if(leadLoadGameSet !== null)    { // 만약 저장된 값이 있다면
+      
       loadGame(leadLoadGameSet);
     } else  {
       startGame();

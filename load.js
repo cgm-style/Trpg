@@ -12,7 +12,7 @@ function loadGame(leadLoadGameSet) {
 
     const chartControl = document.querySelectorAll(".chartControl");
 
-    for (const clickChartControl of chartControl) {
+    for (const clickChartControl of chartControl) { // 캐릭터 시트 만든 후 오른쪽 에서 버튼 누르면 보이게 아는 액션.
         clickChartControl.addEventListener("click", function(event,chartControl) {
             if(event.target.parentNode.style.zIndex === "" || event.target.parentNode.style.zIndex === "0")    {
                 // 핵심은 모든 애들한테 한번 0값을 주면 초기화 개념이라 충분히 가능
@@ -27,5 +27,6 @@ function loadGame(leadLoadGameSet) {
                 clickChartControl.parentNode.style.zIndex = "0" ;
             }
         });
-      }
+    }
+    startTrpg();
 }

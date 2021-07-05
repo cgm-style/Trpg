@@ -11,9 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     
 
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="chart.css">
+    <link rel="stylesheet" href="reset.css">    <!-- 기본 리셋 css -->
+    <link rel="stylesheet" href="style.css">    <!-- 대부분의 css -->
+    <link rel="stylesheet" href="chart.css">    <!-- 캐릭터 시트에 대한 css -->
+    <link rel="stylesheet" href="set.css">      <!-- 게임 스타트 후의 css -->
 </head>
 <body>
     <div id="jsStartGame"></div>
@@ -229,6 +230,12 @@
     </div>
     <div id="jsPlaySetting"></div>
     <div id="jsChartSet"></div>
+    <div id="popupDiceBox"></div>
+
+    <form>
+        <input type="text" value="관리자 툴입니다.">
+    </form>
+
 
     <!--  https://codepen.io/tholman/pen/qCnfB  드래그 했을떄 글씨가 나타나는것  -->
     <!--  https://codepen.io/Valgo/pen/PowZaNY  글자가 꿈틀대며 바뀌는것-->
@@ -237,12 +244,13 @@
     <!--  https://sites.google.com/site/paeseupaindeorpghangugeowiki/paeseupaindeo-rpg/moheomjib/jangbi/mugi/mugi-sangse-jeongbo  템 리스트  -->
     <!--  https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=junnon&logNo=22620983 판정 피해등  -->
     
-    <script src="itemLIst.js"></script>
-    <script src="totalDice.js"></script>
-    <script src="load.js"></script>
-    <script src="addSheet.js"></script>
-    <script src="trpg.js"></script>
-    <script src="addChart.js"></script>
-    <script src="setting.js"></script>
+    <script src="trpg.js"></script> <!-- 기본 js -->
+    <script src="start.js"></script> <!-- 모든 설정 후 게임 스타트 js -->
+    <script src="itemLIst.js"></script> <!-- 아이템 리스트 js -->
+    <script src="totalDice.js"></script> <!-- 주사위 함수 js -->
+    <script src="load.js"></script> <!-- 로드 js -->
+    <script src="addSheet.js"></script> <!-- 캐릭터 시트 만드는 js -->
+    <script src="addChart.js"></script> <!-- 캐릭터를 만드는 차트 js -->
+    <script src="setting.js"></script> <!-- 처음 캐릭터를 만든 후 셋팅 js -->
 </body>
 </html>
