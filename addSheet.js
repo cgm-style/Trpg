@@ -912,7 +912,7 @@ function addSheet(num,leadLoadGameSet) {
             savincBoxdiv1.className = "savinc savincStr";   //  내성 근력
                 savincBoxdiv1input.type = "checkbox";
                 savincBoxdiv1p1.innerText = `${fixState(myStr),fixstateStr}`;
-                if(myJob === "파이터" || myJob === "바바리안" || myJob === "레인저")  {
+                if(myJob === "파이터" || myJob === "바바리안" || myJob === "레인저" || myJob === "뭉크")  {
                     savincBoxdiv1p1.innerText = `${savincStateStr}`;
                     savincBoxdiv1input.checked = true;
                 }
@@ -921,7 +921,7 @@ function addSheet(num,leadLoadGameSet) {
             savincBoxdiv2.className = "savinc savincDex";   //  내성 민첩
                 savincBoxdiv2input.type = "checkbox";
                 savincBoxdiv2p1.innerText = `${fixState(myDex),fixstateDex}`;
-                if(myJob === "로그" || myJob === "바드" || myJob === "레인저" || myJob === "알케미스트")  {
+                if(myJob === "로그" || myJob === "바드" || myJob === "레인저" || myJob === "알케미스트" || myJob === "뭉크")  {
                     savincBoxdiv2p1.innerText = `${savincStateDex}`;
                     savincBoxdiv2input.checked = true;
                 }

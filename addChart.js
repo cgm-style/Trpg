@@ -321,7 +321,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function()  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,"초기자금")+10}`;
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,0,"초기자금")+10}`;
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -355,7 +355,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -389,7 +389,7 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.disabled = true;
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(2,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(2,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -434,7 +434,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,방패,성표,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -468,7 +468,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,다트 10개,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,"초기자금")}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,0,"초기자금")}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -511,7 +511,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p3.innerText = "탐험가 꾸러미,대거 2개,도둑 도구,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -555,7 +555,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "예능인 꾸러미,대거,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -588,7 +588,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(5,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -622,7 +622,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,주문책,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -656,7 +656,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "탐험가 꾸러미,대거 2개,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `당신의 초기 자금은 : ${totalDiceTool(3,4,"초기자금")+10} 입니다.(캐릭터마다 주사위 + 값이 다릅니다.)`
+                checkJobSetBoxMoneyRollingValue.innerText = `당신의 초기 자금은 : ${totalDiceTool(3,4,0,"초기자금")+10} 입니다.(캐릭터마다 주사위 + 값이 다릅니다.)`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -689,7 +689,7 @@ function addChart(num) {
               checkJobSetBoxdiv4p2.innerText = "던전 탐색자 꾸러미,단순 무기,대거 2개,";
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(4,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -721,7 +721,7 @@ function addChart(num) {
               checkJobSetBoxdiv4input2.disabled = true;
 
               checkJobSetBoxMoneyRolling.addEventListener("click",function(event)  {
-                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(2,4,"초기자금")+10}`
+                checkJobSetBoxMoneyRollingValue.innerText = `${totalDiceTool(2,4,0,"초기자금")+10}`
                 chkMoney = checkJobSetBoxMoneyRollingValue.innerText;
               })
 
@@ -852,8 +852,8 @@ function addChart(num) {
 
           function diceRollBtnClick(event)   {  // 주사위 클릭 이벤트
             event.preventDefault(); // submit 중지
-
-            let randomDice6D =  Math.floor(Math.random() * 6)+1,
+            
+            let randomDice6D =  totalDiceTool(1,6,0,"스텟 주사위");
                 setRandomDiceRoll6D = document.createElement("p");
 
             if(setRollDiceValue.length <= 3)    {
@@ -900,7 +900,7 @@ function addChart(num) {
                 myJobTool = characterSetBox1Form.querySelector('input[name="jobItemTool"]:checked').value;   // 직업에 따른 도구
 
                 let checkd = {  
-                    level : 0,  // 레벨
+                    level : 1,  // 레벨
                     exp : 0,  // 경험치
                     inspiration : 0, // 고양감 점수
                     leftHand : null, // 왼손

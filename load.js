@@ -36,7 +36,6 @@ function loadGame(leadLoadGameSet) {
             diceLog.push(loadDiceLog);
 		})
 	}
-    console.dir(diceLog);
 
     startTrpg();
 }

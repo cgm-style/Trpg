@@ -13,6 +13,38 @@
     font-size: 16px;
 }
 
+#logBox {
+    background: rgba(0,0,0,0.5);
+    width: 60%;
+    height: 70vh;
+    position: fixed;
+    border-radius: 20px;
+    left: 20%;
+    top: 15%;
+    border: 3px solid;
+    margin-top: 100px;
+    opacity: 0;
+    display: none;
+    transition: all 0.5s;
+    color: white;
+    overflow-y: scroll;
+    padding: 25px;
+}
+#logBox span    {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    padding: 5px 15px;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    color:black;
+}
+#logBox p   {
+    line-height: 1.2em;
+    font-size: 18px;
+}
+
 #popupDiceBox   {
     position: fixed;
     width: 300px;

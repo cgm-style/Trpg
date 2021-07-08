@@ -7,9 +7,11 @@ const start = document.querySelector("#jsStartGame"), // 배경 박스
   entpMainTitle = document.querySelectorAll(".entpMainTitle"),  // 종족 타이틀
   explanationBtn = document.querySelector("#explanation"),  // 설명 버튼
   ExplanationContainer = document.querySelector("#Explanation"),  // 설명 박스
-  characterNextSet = document.querySelectorAll(".characterNextSet"),
+  characterNextSet = document.querySelectorAll(".characterNextSet"),  // 캐릭터 다음으로 가는 버튼
   jsChartSet = document.querySelector("#jsChartSet"), // 캐릭터 상세 시트 박스
-  diceLog = []; // 주사위 로그를 위한 변수 값.
+  jsChatLog = document.querySelector(".chat_log"),  // 로그 검색하는 곳
+  diceLog = [], // 주사위 로그를 위한 변수 값.
+  logBox = document.querySelector("#logBox"); // 로그 박스
 
 let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   gameSet = [], // 셋팅에 대한 키 값을 넣을 입력 값
@@ -19,7 +21,8 @@ let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   dicePlusValue = 0,  // 다이스 +값을 위한 변수
   setLocalKeyValue = [], // 로컬 스토리지에 넣을 변수 값
   checkRightChartBox = 0, // 캐릭터 시트 토글 버튼을 위한 값
-  totalDiceValue = 0; // 토탈 주사위 굴리는 값
+  totalDiceValue = 0, // 토탈 주사위 굴리는 값
+  diceWhyRoll = ""; // 주사위 굴리는 이유에 대한 값
 
 function handlePlayingNum(event) {  // 인원수 셋팅
   event.preventDefault(); // submit의 이벤트를 막음

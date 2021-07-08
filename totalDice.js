@@ -1,4 +1,4 @@
-function totalDiceTool(count,maxDice,logName)    {
+function totalDiceTool(count,maxDice,plusDice,logName)    {
 
     const diceBox = document.querySelector("#popupDiceBox"),
           addDiceDiv = document.createElement("div"),
@@ -14,10 +14,13 @@ function totalDiceTool(count,maxDice,logName)    {
         totalDiceValue = totalDiceRolling +  totalDiceValue;
     }
 
+    totalDiceValue = Number(totalDiceValue) + Number(plusDice);
+
     diceBox.appendChild(addDiceDiv);
     addDiceDiv.appendChild(addDiceDivP);
 
     addDiceDiv.className = "popupDice";
+
     addDiceDivP.innerText = `주사위 값 : ${totalDiceValue}`;
     setTimeout(() => {
         addDiceDiv.className += " opacity";
@@ -33,11 +36,10 @@ function totalDiceTool(count,maxDice,logName)    {
         diceHours = diceNowTime.getHours(),
         diceMinutes = diceNowTime.getMinutes(),
         diceSeconds = diceNowTime.getSeconds(),
-        diceValue = {"주사위 로그" : `${diceMonth}월달 ${diceDay}일 ${diceHours}시 ${diceMinutes}분 ${diceSeconds}초 : ${logName}으로 인해 굴리셨으며 주사위의 값은 ${totalDiceValue}이였습니다.`};
+        diceValue = {"Dice_log" : `${diceMonth}월 ${diceDay}일 ${diceHours}시 ${diceMinutes}분 ${diceSeconds}초 : ${logName}으로 인해 굴리셨으며 주사위는${maxDice}면체 주사위 ${count}개 였으며 추가 주사위 보정값은 ${plusDice} 였습니다. 주사위의 총합은${totalDiceValue} 입니다.`};
     
         diceLog.push(diceValue);
         localStorage.setItem(`diceLog`,JSON.stringify(diceLog));
 
-    console.log(diceLog);
     return totalDiceValue;
 }
