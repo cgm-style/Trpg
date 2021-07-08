@@ -28,5 +28,15 @@ function loadGame(leadLoadGameSet) {
             }
         });
     }
+
+    const loadDiceLog = localStorage.getItem("diceLog") // 로컬 스토리지에 저장된 내용 불러오기
+	if(loadDiceLog !== null)	{	// 로드된 값이 null(없는) 값이 아니라면
+		const parsedDiceLog = JSON.parse(loadDiceLog);	// 로컬스토리지에서 가져온값
+		parsedDiceLog.forEach(function(loadDiceLog) {	// 내용 찾기
+            diceLog.push(loadDiceLog);
+		})
+	}
+    console.dir(diceLog);
+
     startTrpg();
 }
