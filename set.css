@@ -1,3 +1,18 @@
+.chat_log   {
+    position: fixed;
+    width: 100%;
+    bottom: 8px;
+    text-align: center;
+}
+.chat_log input {
+    width: 45%;
+    height: 34px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
 #popupDiceBox   {
     position: fixed;
     width: 300px;
