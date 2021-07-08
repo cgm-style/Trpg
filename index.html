@@ -232,9 +232,11 @@
     <div id="jsChartSet"></div>
     <div id="popupDiceBox"></div>
 
-    <form>
-        <input type="text" value="관리자 툴입니다.">
-    </form>
+    <div id="diceRoll_box">
+        <form class="chat_log">
+            <input type="text" placeholder="관리자 툴입니다. 가능한 명령어 / #d#/이유 - 주사위 로그 - 채팅 로그 -">
+        </form>
+    </div>
 
 
     <!--  https://codepen.io/tholman/pen/qCnfB  드래그 했을떄 글씨가 나타나는것  -->
@@ -244,12 +246,12 @@
     <!--  https://sites.google.com/site/paeseupaindeorpghangugeowiki/paeseupaindeo-rpg/moheomjib/jangbi/mugi/mugi-sangse-jeongbo  템 리스트  -->
     <!--  https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=junnon&logNo=22620983 판정 피해등  -->
     
-    <script src="trpg.js"></script> <!-- 기본 js -->
     <script src="start.js"></script> <!-- 모든 설정 후 게임 스타트 js -->
+    <script src="addSheet.js"></script> <!-- 캐릭터 시트 만드는 js -->
+    <script src="load.js"></script> <!-- 로드 js -->
+    <script src="trpg.js"></script> <!-- 기본 js -->
     <script src="itemLIst.js"></script> <!-- 아이템 리스트 js -->
     <script src="totalDice.js"></script> <!-- 주사위 함수 js -->
-    <script src="load.js"></script> <!-- 로드 js -->
-    <script src="addSheet.js"></script> <!-- 캐릭터 시트 만드는 js -->
     <script src="addChart.js"></script> <!-- 캐릭터를 만드는 차트 js -->
     <script src="setting.js"></script> <!-- 처음 캐릭터를 만든 후 셋팅 js -->
 </body>
