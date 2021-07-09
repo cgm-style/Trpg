@@ -5,15 +5,18 @@ function totalDiceTool(count,maxDice,plusDice,logName)    {
           addDiceDivP = document.createElement("p");
 
 
-    let totalDiceRolling = null;    // 주사위 값 초기화
-    totalDiceValue = 0; // 주사위 값 초기화
+    let totalDiceRolling = null,    // 주사위 값 초기화
+        totalDiceValue = 0, // 주사위 값 보정값 추가 초기화
+        subTotalDiceValue = 0,  // 순수 주사위 총합
+        allTotalDiceValue = "개별 값 : ";
 
-    for(diceNum = 1; diceNum <= count; diceNum++)   {
+    for(let diceNum = 1; diceNum <= count; diceNum++)   {
         totalDiceRolling =  Math.floor(Math.random() * maxDice)+1;
 
         totalDiceValue = totalDiceRolling +  totalDiceValue;
+        allTotalDiceValue += `${totalDiceRolling},`;
     }
-
+    subTotalDiceValue = totalDiceValue;
     totalDiceValue = Number(totalDiceValue) + Number(plusDice);
 
     diceBox.appendChild(addDiceDiv);
@@ -36,8 +39,8 @@ function totalDiceTool(count,maxDice,plusDice,logName)    {
         diceHours = diceNowTime.getHours(),
         diceMinutes = diceNowTime.getMinutes(),
         diceSeconds = diceNowTime.getSeconds(),
-        diceValue = {"Dice_log" : `${diceMonth}월 ${diceDay}일 ${diceHours}시 ${diceMinutes}분 ${diceSeconds}초 : ${logName}으로 인해 굴리셨으며 주사위는${maxDice}면체 주사위 ${count}개 였으며 추가 주사위 보정값은 ${plusDice} 였습니다. 주사위의 총합은${totalDiceValue} 입니다.`};
-    
+        diceValue = {"Dice_log" : `${diceMonth}월 ${diceDay}일 ${diceHours}시 ${diceMinutes}분 ${diceSeconds}초 : 사유 : ${logName} / ${maxDice}면체 주사위 ${count}개 보정값 : ${plusDice} / ${allTotalDiceValue} / 주사위 총합 :${totalDiceValue}`};
+
         diceLog.push(diceValue);
         localStorage.setItem(`diceLog`,JSON.stringify(diceLog));
 

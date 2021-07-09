@@ -10,8 +10,14 @@ const start = document.querySelector("#jsStartGame"), // 배경 박스
   characterNextSet = document.querySelectorAll(".characterNextSet"),  // 캐릭터 다음으로 가는 버튼
   jsChartSet = document.querySelector("#jsChartSet"), // 캐릭터 상세 시트 박스
   jsChatLog = document.querySelector(".chat_log"),  // 로그 검색하는 곳
-  diceLog = [], // 주사위 로그를 위한 변수 값.
-  logBox = document.querySelector("#logBox"); // 로그 박스
+  logBox = document.querySelector("#logBox"), // 로그 박스
+  chatBox = document.querySelector("#chatBox"), // 채팅 박스
+  chatCotants = document.querySelector(".chatCotants"), // 채팅창
+  chatCotantsInner = document.querySelector(".chatCotants div"),
+  chatForm = document.querySelector("#chatInputFrom"), // 채팅 입력창
+  chatName = document.querySelector("#chatName"), // 이름 박스
+  chatNameInput = document.querySelector(".MyNameChat"),  // 이름 입력
+  diceLog = []; // 주사위 로그를 위한 변수 값.
 
 let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   gameSet = [], // 셋팅에 대한 키 값을 넣을 입력 값
@@ -22,7 +28,8 @@ let GAME_SETTING = "GAME_SETTING",  // 셋팅에 대한 키 값
   setLocalKeyValue = [], // 로컬 스토리지에 넣을 변수 값
   checkRightChartBox = 0, // 캐릭터 시트 토글 버튼을 위한 값
   totalDiceValue = 0, // 토탈 주사위 굴리는 값
-  diceWhyRoll = ""; // 주사위 굴리는 이유에 대한 값
+  diceWhyRoll = "", // 주사위 굴리는 이유에 대한 값
+  logBoxOnOff = false; // 주사위 로그 박스 on/off
 
 function handlePlayingNum(event) {  // 인원수 셋팅
   event.preventDefault(); // submit의 이벤트를 막음

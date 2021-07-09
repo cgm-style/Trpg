@@ -29,6 +29,7 @@
     color: white;
     overflow-y: scroll;
     padding: 25px;
+    z-index: 1;
 }
 #logBox span    {
     position: absolute;
@@ -44,6 +45,65 @@
     line-height: 1.2em;
     font-size: 18px;
 }
+
+#chatBox    {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 450px;
+    height: 350px;
+    background: rgba(255,255,255,0.5);
+    border: 3px solid;
+}
+.chatCotants    {
+    display: inline-block;
+    width: 100%;
+    height: 310px;
+    background: rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+.chatCotants div   {
+    position: absolute;
+    bottom: 10px;
+}
+.chatCotants div p  {
+    color: white;
+    padding: 5px;
+}
+#chatBox form   {
+    float: left;
+}
+#chatInputFrom  {
+    width: 85%;
+}
+#chatInputFrom input  {
+    width: 100%;
+    height: 40px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    font-size: 17px;
+    box-sizing: border-box;
+    margin-top: -1px;
+    border: 0px;
+    border-top: 2px solid black;
+}
+
+#chatName   {
+    width: 15%;
+}
+#chatName input {
+    width: 100%;
+    height: 40px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    font-size: 17px;
+    box-sizing: border-box;
+    margin-top: -1px;
+    border: 0px;
+    border-top: 2px solid black;
+}
+
 
 #popupDiceBox   {
     position: fixed;

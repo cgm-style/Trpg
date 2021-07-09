@@ -1,5 +1,5 @@
 function startTrpg()    {
-    jsChatLog.addEventListener("submit",function(event){
+    jsChatLog.addEventListener("submit",function(event){    // 명령어 입력에 대한 창
         event.preventDefault();
 
         const chatKeyWord = event.target[0].value;
@@ -34,26 +34,46 @@ function startTrpg()    {
 
             for(dicelognum = 1; dicelognum < diceLog.length; dicelognum++)    {
                 logBox.innerHTML += `<p>${diceLog[dicelognum].Dice_log}</p></br>`;
-                console.log(diceLog[dicelognum]);
             }
 
             setTimeout(() => {
                 logBox.className += "opacity";
             }, 100);
 
-            const logBoxClose = document.querySelector('#logBox span');
+            let logBoxClose = document.querySelector('#logBox span'); // 주사위 닫기 버튼
+            
+
             logBoxClose.addEventListener("click",function(){
-                logBox.innerHTML = "";
-                logBox.className -= "opacity";
+                logBox.innerHTML = "<span>닫기</span>";
+                logBox.className = "";
                 setTimeout(() => {
                     logBox.style.display = "none";
                 }, 600);
+                logBoxOnOff = true;
             })
+
+
+
         }else if(chatKeyWord.indexOf('로그 삭제') != -1 )  {    // 로그 삭제
             localStorage.removeItem("diceLog");
         }else if(chatKeyWord.indexOf('캐릭터 삭제') != -1 )  {    // 캐릭터 삭제
             localStorage.removeItem("chartKey");
         }
+
+        event.target[0].value = "";
+    })
+
+
+    chatForm.addEventListener("submit",function(event)  {
+        event.preventDefault();
+        
+        let addChatText = event.target[0].value,
+            addChatName = chatNameInput.value;
+
+        const addChat = document.createElement("p");
+
+        addChat.innerText = `${addChatName} : ${addChatText}`
+        chatCotantsInner.appendChild(addChat);
 
         event.target[0].value = "";
     })
